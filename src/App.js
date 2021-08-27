@@ -1,10 +1,34 @@
 import Navbar from './components/Navbar/Navbar.component';
+import HomePage from './pages/home/home.component';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { ThemeProvider } from '@material-ui/core';
+import { createMuiTheme, createTheme } from '@material-ui/core/styles';
+
+ 
+
+
+const theme = createMuiTheme({
+  overrides: {
+    MuiCssBaseline: {
+      '@global': {
+        html: {
+          fontSize: '62.5%'
+
+        },
+      },
+    },
+  },
+});
+
 
 
 function App() {
   return (
     <div>
-      <Navbar/>
+      <ThemeProvider theme={theme}> 
+      <CssBaseline/>
+          <HomePage/>
+      </ThemeProvider> 
     </div>  
   );
 }
