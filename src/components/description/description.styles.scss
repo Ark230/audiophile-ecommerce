@@ -1,0 +1,45 @@
+.description-container{
+    position: absolute;
+    width: 39.8rem;
+    height: 34.6rem;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Manrope';
+    top: 22.5rem;
+    left: 16.5rem;
+
+  
+
+    &__new-product {
+        opacity: 0.5;
+        font-size: 1.4rem;
+        line-height: 1.9rem;
+        letter-spacing: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &__product-title{
+        font-size: 5.6rem;
+        font-weight: bold;
+        line-height: 5.8rem;
+        letter-spacing: 2px;
+        margin: .8rem 0;
+    }
+
+    &__description{
+        opacity: 0.75;
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+        font-weight: 200;
+        width: 34.9rem;
+        margin: 3.3rem 0;
+    }
+
+
+    .btn-primary{
+        background-color: #FBAF85;
+        color: white;
+    }
+
+}
