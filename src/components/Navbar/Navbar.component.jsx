@@ -1,41 +1,42 @@
 import React from 'react';
 import './Navbar.styles.scss';
 import {AppBar, Grid, makeStyles, Toolbar, 
-        Typography, List, ListItem, 
-        ListItemText, Link, IconButton,
-        createMuiTheme, ThemeProvider} from '@material-ui/core'
+        List, ListItem, Link, IconButton,
+        } from '@material-ui/core'
 import audiophileLogo from '../../assets/img/shared/desktop/logo.svg';
 import cartIcon from '../../assets/img/cart/cart-icon.svg';
-import { purple } from '@material-ui/core/colors';
+
 
 const useStyles = makeStyles( theme => ({
     mainContainer: {
         display: 'flex',
     },
-    appBar:{
-        backgroundColor: '#1a1a1a'
-    },
     nav:{
         display: 'flex'
+    },
+    appBar:{
+        padding: '2rem 2.5rem',
+        boxShadow: 'none'
     },
     navItem:{
         fontFamily: 'Manrope',
         fontWeight: 'bold',
         lineHeight: '1rem',
-        letterSpacing: '.3rem'
+        letterSpacing: '.3rem',
+        color:'#ffff',
+        [theme.breakpoints.down('sm')]:{
+            display: 'none'
+        }
     }
 
 }));
-
-
 
 const Navbar = () => {
     const classes = useStyles();
     
     return (
         
-        
-        <AppBar position="static" className={classes.appBar}>
+        <AppBar position="static" className={classes.appBar} color="transparent">
             <Toolbar className="nav-toolbar">
                 <img src={audiophileLogo} alt="Audiophile Logo"/>
                     <Grid container spacing={1} xs={6} justify="space-around" >
