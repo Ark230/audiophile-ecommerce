@@ -24,18 +24,6 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.between('md', 'lg')]:{
             backgroundPosition: '55%'
         }
-    },
-    navDivider: {
-        background: '#ffffff',
-        opacity: '0.2',
-        [theme.breakpoints.up('lg')]:{
-            marginLeft:'11.5rem',
-            marginRight:'11.5rem'
-        },
-        [theme.breakpoints.down('md')]:{
-            marginLeft:'9.5rem',
-            marginRight:'9.5rem'
-        }
     }
 
 }))
@@ -48,7 +36,6 @@ const HomePage = () => {
         <div>
             <section className={`${classes.heroSectionBg}`}>
                 <Navbar/>
-               <div> <Divider className={`${classes.navDivider} nav-divider`} variant="middle" light={true}/></div>
                     <Hero/>
             </section>
         </div>
