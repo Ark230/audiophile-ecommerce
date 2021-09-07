@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Navbar.styles.scss';
 import {AppBar, Grid, makeStyles, Toolbar, 
-        List, ListItem, Link, IconButton, Drawer, useTheme, Divider, ListItemText, Typography,
+        List, ListItem, Link, IconButton, Drawer, Divider, ListItemText, Typography,
         } from '@material-ui/core'
 import audiophileLogo from '../../assets/img/shared/desktop/logo.svg';
 import cartIcon from '../../assets/img/cart/cart-icon.svg';
@@ -9,12 +9,6 @@ import MenuIcon from "@material-ui/icons/Menu";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import clsx from 'clsx';
-
-
-// value         |0px     600px    960px    1280px   1920px
-// key           |xs      sm       md       lg       xl
-// screen width  |--------|--------|--------|--------|-------->
-// range         |   xs   |   sm   |   md   |   lg   |   xl
 
 const useStyles = makeStyles( theme => ({
     mainContainer: {
@@ -33,6 +27,24 @@ const useStyles = makeStyles( theme => ({
         padding: '2rem 2.5rem',
         boxShadow: 'none'
     },
+    businessLogo:{
+        
+        [theme.breakpoints.down('sm')]:{
+            position:'absolute',
+            top:'30%',
+            left:'7.2%'
+        },
+        [theme.breakpoints.down('xs')]:{
+            position: 'revert'
+        }
+
+    },
+    navToolbar:{
+        justifyContent: 'space-around',
+        [theme.breakpoints.down('md')]:{
+            justifyContent: 'space-between'
+        }
+    },
     navItem:{
         fontFamily: 'Manrope',
         fontWeight: 'bold',
@@ -47,14 +59,9 @@ const useStyles = makeStyles( theme => ({
             marginLeft:'11.5rem',
             marginRight:'11.5rem'
         },
-        // [theme.breakpoints.down('md')]:{
-        //     marginLeft:'9.5rem',
-        //     marginRight:'9.5rem'
-        // }
-        //tablet 
-        [theme.breakpoints.between('sm','md')]:{
-            marginLeft: '4.5rem',
-            marginRight: '4.8rem'
+        [theme.breakpoints.between('sm')]:{
+            marginLeft: '0',
+            marginRight: '5%'
         }
     },
     menuButton: {
@@ -70,7 +77,7 @@ const useStyles = makeStyles( theme => ({
         }
     },
     hide:{
-        display: 'none'
+        display: 'block'
     },
     drawer:{
         width: '240',
@@ -87,7 +94,6 @@ const useStyles = makeStyles( theme => ({
 
 const Navbar = () => {
     const classes = useStyles();
-    const theme = useTheme();
 
     const [open, setOpen] = useState(false);
 
@@ -121,14 +127,13 @@ const Navbar = () => {
         subMenuObj[item] ? true: false
    )
 
-    const list = () => {
+    const displayMenuItems = () => {
         
 
-        let arr = menuName ? subMenuObj[menuName] : mainMenuListArr;
-        console.log(arr, menuName);
+        let menuItemList = menuName ? subMenuObj[menuName] : mainMenuListArr;
 
         if(menuName){
-            arr = arr.map(item => {
+            menuItemList = menuItemList.map(item => {
                 if(typeof(item) === 'object'){
                     return item.name;
                 }
@@ -139,8 +144,6 @@ const Navbar = () => {
         const clickListener = (text) => {
             if(!menuName){ 
                 return setMenuName(text.toLowerCase());
-            }else{
-                return alert(`${text} clicked`);
             }
         }
 
@@ -151,9 +154,8 @@ const Navbar = () => {
                 <List>
                     {
                       
-                        arr.map((text, index) => (
-                            
-                            <ListItem button key={text} onClick={() => clickListener(text)}>
+                      menuItemList.map((text, index) => (
+                            <ListItem button key={index} onClick={() => clickListener(text)}>
                                 <ListItemText primary={text} />
                                 {hasSubMenu(text.toLowerCase()) && <ChevronRightIcon />}
                             </ListItem>
@@ -168,20 +170,20 @@ const Navbar = () => {
     return (
       <div>
         <AppBar position="static" className={classes.appBar} color="transparent">
-            <Toolbar className="nav-toolbar">
+            <Toolbar className={classes.navToolbar}>
 
                 <IconButton
                     color="inherit"
                     aria-label="open drawer"
                     onClick={handleDrawerOpen}
                     edge="start"
-                    className={clsx(classes.menuButton, open && classes.hide)}
+                    className={clsx(classes.menuButton, open)}
                 >
                     <MenuIcon/>
                 </IconButton>        
 
 
-                <img src={audiophileLogo} alt="Audiophile Logo"/>
+                <img className={classes.businessLogo} src={audiophileLogo} alt="Audiophile Logo"/>
                     <Grid className={classes.navContainer} container spacing={1} xs={6} justify="space-around" >
                         
                         <List className={`${classes.nav} nav-underline`}>
@@ -209,7 +211,7 @@ const Navbar = () => {
                     </IconButton>    
 
             </Toolbar>
-            <div> <Divider className={`${classes.navDivider} nav-divider`} variant="middle" light={true}/></div>
+            <div> <Divider className={`${classes.navDivider} nav-divider`}  light={true}/></div>
 
         </AppBar>
 
@@ -230,7 +232,7 @@ const Navbar = () => {
 
         )}
       
-        {list()}
+        {displayMenuItems()}
             
         </Drawer>
     </div>  

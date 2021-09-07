@@ -3,7 +3,7 @@
 import React from 'react';
 import Hero from '../../components/hero/hero.component';
 import Navbar from '../../components/Navbar/Navbar.component';
-import { Divider, makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import desktopImage from '../../assets/img/home/desktop/image-hero.jpg';
 
 import './home.styles.scss'
