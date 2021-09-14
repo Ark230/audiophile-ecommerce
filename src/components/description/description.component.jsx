@@ -9,35 +9,34 @@ const PrimaryButton = styled(Button)(({theme}) => ({
     color: theme.palette.getContrastText(purple[500]),
     padding: '1.5rem',
     width: '16rem',
-    fontSize: '1.3rem'
+    fontSize: '1.3rem',
+    borderRadius: '0px',
+    '&:hover':{
+        backgroundColor: '#FBAF85'
+    }
 }));
-//background-position: center??
-//calc(100vh - 82vh) auto; 600p< hacia abajo
-//calc(100vh - 87vh) calc(100vw - 73.5vw); -->600px hacia arriba
+
 
 const useStyles = makeStyles(theme => ({
     descriptionContainer: {
-        position: 'absolute',
+        margin: '6% 7%',
         width: '39.8rem',
         height: '34.6rem',
         color: '#ffffff',
         display: 'flex',
         flexDirection: 'column',
         fontFamily: 'Manrope',
-        top: '22.5rem',
-        left: '16.5rem',
+        [theme.breakpoints.down('sm')]:{
+            position: 'absolute',
+            margin: '0',
+            textAlign: 'center',
+            left: '50%',
+            top: '50%'
+        },
         [theme.breakpoints.only('sm')]:{
-            textAlign:'center',
-            width: '38rem',
-            left:'50%',
-            top: '50%',
             transform: 'translate(-48%, -50%)'
-
         },   
         [theme.breakpoints.only('xs')]:{
-            textAlign:'center',
-            top: '50%',
-            left:'50%',
             width: '32rem',
             height: '29rem',
             transform: 'translate(-48%, -40%)'
@@ -72,16 +71,16 @@ const useStyles = makeStyles(theme => ({
         width: '34.9rem',
         margin: '3.3rem 0',
         [theme.breakpoints.down('sm')]:{
-            margin: '.3rem auto',
+            margin: '2.3rem auto',
             marginBottom: '2rem'
         },
         [theme.breakpoints.only('xs')]:{
-            width:'80%'
+            width:'83%'
         }
     },
     descriptionButton:{
         [theme.breakpoints.down('sm')]:{
-            margin:'0 auto'
+            margin:'2rem auto'
         }
     }
 
