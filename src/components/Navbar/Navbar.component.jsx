@@ -29,7 +29,6 @@ const useStyles = makeStyles( theme => ({
         boxShadow: 'none'
     },
     businessLogo:{
-        
         [theme.breakpoints.down('sm')]:{
             position:'absolute',
             top:'30%',
@@ -38,12 +37,14 @@ const useStyles = makeStyles( theme => ({
         [theme.breakpoints.down('xs')]:{
             position: 'revert'
         }
-
     },
     navToolbar:{
         justifyContent: 'space-around',
-        [theme.breakpoints.down('md')]:{
+        [theme.breakpoints.down('sm')]:{
             justifyContent: 'space-between'
+        },
+        [theme.breakpoints.only('xs')]:{
+            paddingRight:'0'
         }
     },
     navItem:{
@@ -56,13 +57,13 @@ const useStyles = makeStyles( theme => ({
     navDivider: {
         background: '#ffffff',
         opacity: '0.2',
-        [theme.breakpoints.up('lg')]:{
-            marginLeft:'11.5rem',
-            marginRight:'11.5rem'
+        [theme.breakpoints.up('md')]:{
+            marginLeft:'7.5%',
+            marginRight:'8.3%'
         },
-        [theme.breakpoints.between('sm')]:{
-            marginLeft: '0',
-            marginRight: '5%'
+        [theme.breakpoints.only('sm')]:{
+            marginLeft:'1.1%',
+            marginRight:'4.6%'
         }
     },
     menuButton: {
@@ -75,6 +76,11 @@ const useStyles = makeStyles( theme => ({
         },
         [theme.breakpoints.between('xs','sm')]:{
             display:'block'
+        }
+    },
+    cartIcon:{
+        [theme.breakpoints.only('xs')]:{
+            padding:'0'
         }
     },
     hide:{
@@ -207,8 +213,9 @@ const Navbar = () => {
                     <IconButton 
                         color="inherit"
                         aria-label="menu"
+                        className={classes.cartIcon}
                         >
-                        <img src={cartIcon} alt="Cart Icon"/>
+                        <img  src={cartIcon} alt="Cart Icon"/>
                     </IconButton>    
 
             </Toolbar>
