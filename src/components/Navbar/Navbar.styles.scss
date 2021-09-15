@@ -1,0 +1,44 @@
+
+// .nav-toolbar{
+//     justify-content: space-around;
+// }
+
+@font-face{
+    font-family: 'Manrope';
+    src: url('../../assets/fonts/Manrope/Manrope-VariableFont_wght.ttf')
+}
+
+// .nav-underline{
+//     &>li:nth-child(1) a::after{
+//         width: 94.5%;
+//     }
+// }
+
+
+.nav-animation{
+    position: relative;
+    cursor: pointer;
+
+    &:hover{
+        color:#D87D4A;
+    }
+    // &::after{
+    //     content: '';
+    //     position: absolute;
+    //     bottom: -5px;
+    //     left: 0;
+    //     width: 97.5%;
+    //     height: 2px;
+    //     background-color: #ffffff;
+    //     opacity: 1;
+    //     transition: opacity 300ms, transform 300ms;
+    //     transform: scale(0);
+    //     transform-origin: center;
+    // }
+ 
+    // &:hover::after,
+    // &:focus::after{
+    //     transform: scale(1);
+    // }
+
+}
