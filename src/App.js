@@ -10,8 +10,8 @@ const theme = createMuiTheme({
       '@global': {
         html: {
           fontSize: '62.5%'
-
-        },
+        }
+      
       },
     },
   },
