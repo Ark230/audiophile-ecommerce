@@ -19,7 +19,7 @@ const PrimaryButton = styled(Button)(({theme}) => ({
 
 const useStyles = makeStyles(theme => ({
     descriptionContainer: {
-        margin: '6% 7%',
+        margin: '6% 9%',
         width: '39.8rem',
         height: '34.6rem',
         color: '#ffffff',
