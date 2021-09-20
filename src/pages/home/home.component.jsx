@@ -9,6 +9,7 @@ import tabletDesktopImage from '../../assets/img/home/tablet/image-header.jpg';
 import mobileDesktopImage from '../../assets/img/home/mobile/image-header.jpg';
 
 import './home.styles.scss'
+import CategoryShowcase from '../../components/category-showcase/category-showcase.component';
 
 // value         |0px     600px    960px    1280px   1920px
 // key           |xs      sm       md       lg       xl
@@ -34,6 +35,15 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.only('xs')]:{
             backgroundImage: `url(${mobileDesktopImage})`
         }
+    },
+    mainSection:{
+        padding: '10rem 10rem',
+        [theme.breakpoints.down('md')]:{
+            padding: '10rem 6rem'
+        },
+        [theme.breakpoints.down('sm')]:{
+            padding: '10rem 3rem'
+        }
     }
 
 }))
@@ -47,6 +57,9 @@ const HomePage = () => {
             <section className={`${classes.heroSectionBg}`}>
                 <Navbar/>
                     <Hero/>
+            </section>
+            <section className={classes.mainSection}>
+                <CategoryShowcase/>
             </section>
         </div>
     );
