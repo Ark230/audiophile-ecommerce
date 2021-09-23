@@ -10,6 +10,7 @@ import mobileDesktopImage from '../../assets/img/home/mobile/image-header.jpg';
 
 import './home.styles.scss'
 import CategoryShowcase from '../../components/category-showcase/category-showcase.component';
+import ProductShowCase from '../../components/product-showcase/product-showcase.component';
 
 // value         |0px     600px    960px    1280px   1920px
 // key           |xs      sm       md       lg       xl
@@ -60,6 +61,7 @@ const HomePage = () => {
             </section>
             <section className={classes.mainSection}>
                 <CategoryShowcase/>
+                <ProductShowCase/>
             </section>
         </div>
     );
