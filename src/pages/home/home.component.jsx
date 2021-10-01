@@ -38,12 +38,12 @@ const useStyles = makeStyles((theme) => ({
         }
     },
     mainSection:{
-        padding: '10rem 10rem',
-        [theme.breakpoints.down('md')]:{
-            padding: '10rem 6rem'
+        padding: '10rem 16.5rem',
+        [theme.breakpoints.only('md')]:{
+            padding: '10rem 9rem'
         },
         [theme.breakpoints.down('sm')]:{
-            padding: '10rem 3rem'
+            padding: '10rem 2.5rem'
         }
     }
 

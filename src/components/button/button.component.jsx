@@ -1,16 +1,17 @@
 import React from 'react';
-import { PrimaryButton, SecondaryButton } from './button.styles';
+import {PrimaryButton, SecondaryButton} from './button.styles';
+
 
 const Button = props => {
 const {variant, children} = props;
 
    switch (variant) {
         case 'primary':
-            return <PrimaryButton>{children}</PrimaryButton>
+            return <PrimaryButton className={"descriptionButton"}>{children}</PrimaryButton>
         case 'secondary':
-            return <SecondaryButton>{children}</SecondaryButton>    
+            return <SecondaryButton className={"descriptionButton"}>{children}</SecondaryButton>    
         default:
-            return <PrimaryButton>{children}</PrimaryButton>
+            return <PrimaryButton className={"descriptionButton"}>{children}</PrimaryButton>
     }
  
 };

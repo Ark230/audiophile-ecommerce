@@ -6,7 +6,11 @@ const Hero = () => {
     const classes = useStyles();
     const descriptionProps = {
         isTitleVisible: true,
-        productDetailPage: false    
+        productDetailPage: false,
+        productName: 'XX99 Mark II Headphones',
+        productDescription: `Experience natural, lifelike audio 
+        and exceptional build quality mode for the passionate music enthusiast.`,
+            
     }
 
     return (

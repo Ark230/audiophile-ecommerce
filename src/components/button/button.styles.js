@@ -1,6 +1,5 @@
 import { styled } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
-import { purple } from '@material-ui/core/colors';
 
 export const PrimaryButton = styled(Button)(({theme}) => ({
     backgroundColor: '#D87D4A',

@@ -30,24 +30,20 @@ export const useStyles = makeStyles(theme => ({
             lineHeight: '4rem'
         }
     },
-    description:{
+    descriptionText:{
         opacity: '0.75',
         fontSize: '1.5rem',
         lineHeight: '2.5rem',
         fontWeight: '200',
         width: '34.9rem',
-        margin: '3.3rem 0',
+        marginTop: '1rem',
+        marginBottom: '2rem',
         [theme.breakpoints.down('sm')]:{
             margin: '2.3rem auto',
             marginBottom: '2rem'
         },
         [theme.breakpoints.only('xs')]:{
             width:'83%'
-        }
-    },
-    descriptionButton:{
-        [theme.breakpoints.down('sm')]:{
-            margin:'2rem auto'
         }
     },
     quantityInput:{
