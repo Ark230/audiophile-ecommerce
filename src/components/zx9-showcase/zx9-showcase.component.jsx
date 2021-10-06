@@ -1,11 +1,11 @@
 import React from 'react';
-import {useStyles} from './product-showcase.styles';
+import {useStyles} from './zx9-showcase.styles';
 import ZX9 from '../../assets/img/home/desktop/image-speaker-zx9.png';
 import circlePattern from '../../assets/img/home/desktop/pattern-circles.svg';
 import Description from '../description/description.component';
 
 
-const ProductShowCase = () => {
+const ZX9Showcase = (props) => {
     const classes = useStyles();
     const descriptionProps = {
         isTitleVisible: false,
@@ -16,7 +16,7 @@ const ProductShowCase = () => {
 
     return (
         <div className={classes.showcaseContainer}>
-        <img className={classes.speakerShowcase} src={ZX9}/>
+        <img alt="ZX9 Speaker" className={classes.speakerShowcase} src={ZX9}/>
         <img className={classes.circlePattern} src={circlePattern}/>
         
         <div className={classes.productShowCasePosition}>
@@ -27,4 +27,4 @@ const ProductShowCase = () => {
     );
 };
 
-export default ProductShowCase;
+export default ZX9Showcase;

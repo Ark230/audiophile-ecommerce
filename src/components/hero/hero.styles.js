@@ -6,7 +6,7 @@ export const useStyles = makeStyles(theme => ({
         [theme.breakpoints.only('xs')]:{
             width: '32rem',
             height: '29rem',
-            transform: 'translate(-60%, -40%)'
+            transform: 'translate(-49%, -40%)'
         },
         [theme.breakpoints.down('sm')]:{
             position: 'absolute',

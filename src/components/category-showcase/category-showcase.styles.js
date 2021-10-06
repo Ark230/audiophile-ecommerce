@@ -28,13 +28,14 @@ export const useStyles = makeStyles( theme => ({
         height: '20.4rem',
         background: '#F1F1F1',
         borderRadius: '8px',
+        [theme.breakpoints.only('sm')]:{
+            width: '30.5%'
+        },
         '& > img':{
-            // position: 'absolute',
             width:'26rem',
             height:'25rem',
             display: 'block',
             margin: '-10rem auto',
-            // top: '-60%',
             [theme.breakpoints.up('md')]:{
                 left: '10%'
             },

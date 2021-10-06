@@ -64,9 +64,9 @@ export const useStyles = makeStyles( theme => ({
                 zIndex: '100'
             },
             '& > .descriptionButton':{
-                width: '40%',
+                width: '42%',
                 [theme.breakpoints.down('sm')]:{
-                    margin: '2.5rem 12rem'
+                    margin: '2.5rem 9rem'
                 }
             },
             '& > [class*=productTitle]':{

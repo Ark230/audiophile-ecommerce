@@ -12,7 +12,7 @@ const CategoryShowcase = () => {
     return (
         <div className={classes.showcaseContainer}>
             <div className={classes.categoryContainer}>
-            <img className={classes.headphonesShowCase} src={headphonesShowCase}/>
+            <img alt="headphones category" className={classes.headphonesShowCase} src={headphonesShowCase}/>
                 <Typography className={classes.categoryName} variant="h3">HEADPHONES</Typography>
                 <div className={classes.shopLink}>
                     <Typography variant="h4">SHOP</Typography>
@@ -21,7 +21,7 @@ const CategoryShowcase = () => {
                 
             </div>
             <div className={classes.categoryContainer}>
-                <img className={classes.speakersShowCase} src={speakersShowCase}/>
+                <img alt="speakers category" className={classes.speakersShowCase} src={speakersShowCase}/>
                 <Typography className={classes.categoryName} variant="h3">SPEAKERS</Typography>
                 <div className={classes.shopLink}>
                     <Typography variant="h4">SHOP</Typography>
@@ -29,7 +29,7 @@ const CategoryShowcase = () => {
                 </div>
             </div>
             <div className={classes.categoryContainer}>
-                <img className={classes.earphonesShowCase} src={earphonesShowCase}/>
+                <img alt="earphones category" className={classes.earphonesShowCase} src={earphonesShowCase}/>
                 <Typography className={classes.categoryName} variant="h3">EARPHONES</Typography>
                 <div className={classes.shopLink}>
                     <Typography variant="h4">SHOP</Typography>

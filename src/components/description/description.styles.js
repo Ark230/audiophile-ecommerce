@@ -2,8 +2,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles(theme => ({
     descriptionContainer: {
-        width: '39.8rem',
-        height: '34.6rem',
         color: '#ffffff',
         display: 'flex',
         flexDirection: 'column',
