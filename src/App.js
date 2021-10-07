@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme,  } from '@material-ui/core/styles';
 import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
+import Footer from './components/footer/footer.component';
 
 const breakpoints = createBreakpoints({});
 
@@ -55,6 +56,9 @@ function App() {
       <ThemeProvider theme={theme}> 
       <CssBaseline/>
           <HomePage/>
+          <footer>
+            <Footer/>
+          </footer>
       </ThemeProvider> 
     </div>  
   );
