@@ -9,7 +9,6 @@ import CategoryShowcase from '../../components/category-showcase/category-showca
 import ZX7Showcase from '../../components/zx7-showcase/zx7-showcase.component';
 import YX1Showcase from '../../components/yx1-showcase/yx1-showcase.component';
 import ZX9Showcase from '../../components/zx9-showcase/zx9-showcase.component';
-import Footer from '../../components/footer/footer.component';
 
 // value         |0px     600px    960px    1280px   1920px
 // key           |xs      sm       md       lg       xl
