@@ -15,7 +15,7 @@ export const useStyles = makeStyles((theme) => ({
         }
     },
     descriptionShowCasePosition:{
-        width: '47%',
+        width: '50%',
         background: '#F1F1F1',
         borderRadius: '.8rem',
         [theme.breakpoints.only('xs')]:{

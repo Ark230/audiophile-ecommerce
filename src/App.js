@@ -3,26 +3,26 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { ThemeProvider } from '@material-ui/core';
 import { createMuiTheme,  } from '@material-ui/core/styles';
 import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
+import Footer from './components/footer/footer.component';
+import Manrope from './assets/fonts/Manrope/Manrope-VariableFont_wght.ttf';
+
 
 const breakpoints = createBreakpoints({});
 
-// const theme = createMuiTheme({
-//   overrides: {
-//     MuiCssBaseline: {
-//       '@global': {
-//         html: {
-//           fontSize: '62.5%'
-//         }
-//       },
-//     },
-//   },
-// });
+
+const manrope = {
+  fontFamily: 'Manrope',
+  src: `url(${Manrope}) `
+ };
 
 const theme = createMuiTheme({
+  typography: {
+    fontFamily: 'Manrope'
+   },
   overrides: {
     MuiCssBaseline: {
       '@global': {
-        
+        '@font-face': [manrope],
         html: {
           //big desktop
           [breakpoints.up('xl')]:{
@@ -55,6 +55,9 @@ function App() {
       <ThemeProvider theme={theme}> 
       <CssBaseline/>
           <HomePage/>
+          <footer>
+            <Footer/>
+          </footer>
       </ThemeProvider> 
     </div>  
   );
