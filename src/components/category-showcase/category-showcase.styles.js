@@ -69,6 +69,7 @@ export const useStyles = makeStyles( theme => ({
         fontSize: '1.3rem',
         letterSpacing: '1px',
         lineHeight: '1.8rem',
+        cursor: 'pointer',
         '&:hover':{
             color: '#D87D4A',
             opacity: 'revert'

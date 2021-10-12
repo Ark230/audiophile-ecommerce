@@ -42,7 +42,11 @@ export const useStyles = makeStyles( theme => ({
         fontWeight: 'bold',
         lineHeight: '1rem',
         letterSpacing: '.3rem',
-        color:'#ffff'
+        color:'#ffff',
+        cursor:'pointer',
+        '&:hover':{
+            color:'#D87D4A'
+        }
     },
     navDivider: {
         background: '#ffffff',
