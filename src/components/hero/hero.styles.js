@@ -19,6 +19,12 @@ export const useStyles = makeStyles(theme => ({
             transform: 'translate(-48%, -50%)'
         },
         '& > [class*=descriptionContainer]':{
+            '& > [class*=productTitle]':{
+                [theme.breakpoints.up('md')]:{
+                    width: '50%'
+                }
+                
+            },
             '& > .descriptionButton':{
                 [theme.breakpoints.down('sm')]:{
                     margin:'2rem auto'
