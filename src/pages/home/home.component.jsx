@@ -23,7 +23,6 @@ const HomePage = () => {
         <div>
            <main> 
                 <section className={classes.heroSectionBg}>
-                    <Navbar/>
                         <Hero/>
                 </section>
                 <section className={classes.mainSection}>

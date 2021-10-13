@@ -2,7 +2,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles(theme => ({
     containerHeroPosition:{ 
-        margin: '6% 9%',
         [theme.breakpoints.only('xs')]:{
             width: '32rem',
             height: '29rem',
@@ -14,6 +13,11 @@ export const useStyles = makeStyles(theme => ({
             textAlign: 'center',
             left: '50%',
             top: '50%'
+        },
+        [theme.breakpoints.up('md')]:{
+            position: 'absolute',
+            top: '20rem',
+            left: '9%'
         },
         [theme.breakpoints.only('sm')]:{
             transform: 'translate(-48%, -50%)'
