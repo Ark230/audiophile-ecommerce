@@ -5,6 +5,7 @@ import { createMuiTheme,  } from '@material-ui/core/styles';
 import createBreakpoints from '@material-ui/core/styles/createBreakpoints';
 import Footer from './components/footer/footer.component';
 import Manrope from './assets/fonts/Manrope/Manrope-VariableFont_wght.ttf';
+import Navbar from './components/Navbar/Navbar.component';
 
 
 const breakpoints = createBreakpoints({});
@@ -54,6 +55,7 @@ function App() {
     <div>
       <ThemeProvider theme={theme}> 
       <CssBaseline/>
+          <Navbar/>
           <HomePage/>
           <footer>
             <Footer/>
