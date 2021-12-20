@@ -16,7 +16,9 @@ export const useStyles = makeStyles( theme => ({
     },
     appBar:{
         padding: '2rem 2.5rem',
-        boxShadow: 'none'
+        boxShadow: 'none',
+        backgroundColor: '#191919',
+        position: 'fixed'
     },
     businessLogo:{
         [theme.breakpoints.down('sm')]:{

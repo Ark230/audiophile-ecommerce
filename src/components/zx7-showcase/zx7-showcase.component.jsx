@@ -1,25 +1,32 @@
-import { useStyles } from './zx7-showcase.styles';
-import React from 'react';
-import Description from '../description/description.component';
+import { useStyles } from "./zx7-showcase.styles";
+import React from "react";
+import Description from "../description/description.component";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { selectHomeImages } from "../../redux/gallery/gallery.selectors";
 
+const ZX7Showcase = ({ images }) => {
+  const { gallery } = images ? images : {};
+  const classes = useStyles({ imagesPerDevice: gallery });
 
-const ZX7Showcase = () => {
-    const classes = useStyles();
-    const descriptionProps = {
-        isTitleVisible: false,
-        variant: 'tertiary',
-        productName: 'ZX7 Speaker',
-        productDescription: null
-    }
+  const descriptionProps = {
+    isTitleVisible: false,
+    variant: "tertiary",
+    productName: "ZX7 Speaker",
+    productDescription: null
+  };
 
-
-    return (
-        <div className={classes.showcaseContainer}>
-           <div className={classes.descriptionShowCasePosition}> 
-              <Description {...descriptionProps}/>
-           </div> 
-        </div>
-    );
+  return (
+    <div className={classes.showcaseContainer}>
+      <div className={classes.descriptionShowCasePosition}>
+        <Description {...descriptionProps} />
+      </div>
+    </div>
+  );
 };
 
-export default ZX7Showcase;
+const mapStateToProps = createStructuredSelector({
+  images: selectHomeImages
+});
+
+export default connect(mapStateToProps, null)(ZX7Showcase);
