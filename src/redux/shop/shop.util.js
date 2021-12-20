@@ -1,5 +1,5 @@
-import axios from "axios";
+import { getCollections } from "../../firebase/firebase.util";
 
-export const fetchCollections = () => {
-  return "";
+export const fetchCollections = async () => {
+  return await getCollections();
 };
