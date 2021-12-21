@@ -19,3 +19,8 @@ export const selectSharedImages = createSelector(
   (images) =>
     images ? images.find((directory) => directory.name === "shared") : null
 );
+
+export const selectIsGalleryLoaded = createSelector(
+  [selectGallery],
+  (images) => images.isFetching
+);

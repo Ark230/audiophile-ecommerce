@@ -1,7 +1,6 @@
 import HomePageContainer from "./pages/home/home.container";
 import { connect } from "react-redux";
 import { useEffect } from "react";
-import { fetchCollections } from "./redux/shop/shop.actions";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -10,6 +9,7 @@ import Footer from "./components/footer/footer.component";
 import Manrope from "./assets/fonts/Manrope/Manrope-VariableFont_wght.ttf";
 import Navbar from "./components/Navbar/Navbar.component";
 import { fetchImages } from "./redux/gallery/gallery.actions";
+import Wrapper from "./components/wrapper/wrapper.component";
 
 const breakpoints = createBreakpoints({});
 
@@ -49,28 +49,28 @@ const theme = createMuiTheme({
   }
 });
 
-function App({ fetchCollections, fetchImages }) {
+function App({ fetchImages }) {
   useEffect(() => {
-    fetchCollections();
     fetchImages();
-  }, []);
+  });
 
   return (
     <div>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Navbar />
-        <HomePageContainer />
-        <footer>
-          <Footer />
-        </footer>
+        <Wrapper>
+          <HomePageContainer />
+          <footer>
+            <Footer />
+          </footer>
+        </Wrapper>
       </ThemeProvider>
     </div>
   );
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCollections: () => dispatch(fetchCollections()),
   fetchImages: () => dispatch(fetchImages())
 });
 
