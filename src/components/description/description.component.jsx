@@ -8,7 +8,7 @@ const Description = (props) => {
     productDetailPage,
     variant,
     productName,
-    productDescription,
+    productDescription
   } = props;
   const classes = useStyles();
 
