@@ -10,6 +10,9 @@ import Manrope from "./assets/fonts/Manrope/Manrope-VariableFont_wght.ttf";
 import Navbar from "./components/Navbar/Navbar.component";
 import { fetchImages } from "./redux/gallery/gallery.actions";
 import Wrapper from "./components/wrapper/wrapper.component";
+import CategoryContainer from "./pages/category/category.container";
+import { Routes, Route } from "react-router-dom";
+import { setUrlPathName } from "./redux/path/path.actions";
 
 const breakpoints = createBreakpoints({});
 
@@ -49,10 +52,11 @@ const theme = createMuiTheme({
   }
 });
 
-function App({ fetchImages }) {
+function App({ fetchImages, setUrlPathName }) {
   useEffect(() => {
     fetchImages();
-  });
+    setUrlPathName();
+  }, [fetchImages]);
 
   return (
     <div>
@@ -60,7 +64,15 @@ function App({ fetchImages }) {
         <CssBaseline />
         <Navbar />
         <Wrapper>
-          <HomePageContainer />
+          <main>
+            <Routes>
+              <Route path="/" element={<HomePageContainer />} />
+              <Route
+                path="/category/:categoryId"
+                element={<CategoryContainer />}
+              />
+            </Routes>
+          </main>
           <footer>
             <Footer />
           </footer>
@@ -71,7 +83,8 @@ function App({ fetchImages }) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchImages: () => dispatch(fetchImages())
+  fetchImages: () => dispatch(fetchImages()),
+  setUrlPathName: () => dispatch(setUrlPathName(window.location.pathname))
 });
 
 export default connect(null, mapDispatchToProps)(App);
