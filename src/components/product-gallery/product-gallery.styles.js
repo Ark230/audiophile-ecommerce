@@ -7,7 +7,7 @@ export const useStyles = makeStyles((theme) => ({
     margin: "10rem 0",
     "& > img": {
       borderRadius: "8px",
-      width: "55%",
+      width: "57%",
       [theme.breakpoints.down("xs")]: {
         width: "revert"
       }

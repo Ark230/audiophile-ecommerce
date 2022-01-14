@@ -29,8 +29,9 @@ const ProductDetailPage = (props) => {
       <ProductFeatures />
       <ProductGallery galleryImages={productGallery} />
       <ProductCrossSell crossSellImages={crossSellImages} />
-
-      <CategoryShowcase />
+      <div className={classes.categoryShowcasePosition}>
+        <CategoryShowcase />
+      </div>
     </div>
   );
 };

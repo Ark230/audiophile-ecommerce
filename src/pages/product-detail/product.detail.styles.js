@@ -2,16 +2,17 @@ import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
   productDetailWrapper: {
-    paddingTop: "22rem",
-    paddingLeft: "14.5rem",
-    paddingRight: "14.5rem",
+    padding: "16rem 14.5rem 0 14.5rem",
     [theme.breakpoints.only("md")]: {
       paddingLeft: "9rem",
       paddingRight: "9rem"
     },
     [theme.breakpoints.down("sm")]: {
-      paddingLeft: "2.5rem",
-      paddingRight: "2.5rem"
+      paddingLeft: "4.5rem",
+      paddingRight: "4.5rem"
     }
+  },
+  categoryShowcasePosition: {
+    margin: "20rem 0"
   }
 }));
