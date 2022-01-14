@@ -91,6 +91,12 @@ export const useStyles = makeStyles((theme) => ({
         height: "100%",
         width: "100%"
       }
+    },
+    [theme.breakpoints.down("xs")]: {
+      "& > img": {
+        paddingRight: "0",
+        paddingLeft: "0"
+      }
     }
   },
   categoryShowcasePosition: {

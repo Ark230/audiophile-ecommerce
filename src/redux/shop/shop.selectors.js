@@ -9,7 +9,18 @@ export const selectCategory = (categoryUrlParam) =>
       : {}
   );
 
-export const selectItems = "";
+export const selectProductDetails = (productUrlParam) =>
+  createSelector([selectShop], ({ collections }) =>
+    collections
+      ? collections
+          .map((collection) =>
+            collection.products.filter(
+              (product) => parseInt(product.id) === parseInt(productUrlParam)
+            )
+          )
+          .filter((products) => products.length > 0)
+      : []
+  );
 
 export const selectIsShopLoaded = createSelector(
   [selectShop],

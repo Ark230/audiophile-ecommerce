@@ -36,7 +36,7 @@ const Navbar = ({ setUrlPathName, pathName }) => {
   const location = useLocation();
 
   useEffect(() => {
-    handleCategoryDescription();
+    // handleCategoryDescription();
   }, [category]);
 
   const handleCategoryDescription = (path) => {

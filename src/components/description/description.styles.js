@@ -12,7 +12,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   newProduct: {
     opacity: "0.5",
-    fontSize: "1.4rem",
+    fontSize: "1.8rem",
     lineHeight: "1.9rem",
     letterSpacing: "1rem",
     marginBottom: "1.5rem",
@@ -33,7 +33,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   descriptionText: {
     opacity: "0.75",
-    fontSize: "1.5rem",
+    fontSize: "1.9rem",
     lineHeight: "2.5rem",
     fontWeight: "200",
     width: "34.9rem",
@@ -44,7 +44,7 @@ export const useStyles = makeStyles((theme) => ({
       marginBottom: "2rem"
     },
     [theme.breakpoints.only("xs")]: {
-      width: "83%"
+      width: "revert"
     }
   },
   quantityInput: {
@@ -56,7 +56,10 @@ export const useStyles = makeStyles((theme) => ({
     padding: ".55rem .5rem",
     justifyContent: "space-around",
     marginRight: "2rem",
-    transform: "translateY(.25rem)"
+    transform: "translateY(.25rem)",
+    [theme.breakpoints.down("xs")]: {
+      width: "15rem"
+    }
   },
   productPrice: {
     marginBottom: "3rem",

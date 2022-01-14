@@ -13,7 +13,11 @@ const CategoryContainer = ({ fetchCollections, width }) => {
     fetchCollections();
   }, [fetchCollections]);
 
-  return <CategoryPage categoryParam={categoryId} width={width} />;
+  return (
+    <div>
+      <CategoryPage categoryParam={categoryId} width={width} />
+    </div>
+  );
 };
 
 const mapDispatchToProps = (dispatch) => ({
