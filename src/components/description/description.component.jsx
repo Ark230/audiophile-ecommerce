@@ -24,6 +24,7 @@ const Description = (props) => {
       {productDetailPage ? (
         <div>
           <h2 className={classes.productPrice}>$ 1,750</h2>
+
           <div className={classes.quantityInput}>
             <p className={classes.quantitySelector}>-</p>
             <p>1</p>

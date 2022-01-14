@@ -33,7 +33,7 @@ const Button = (props) => {
       return (
         <PrimaryButton
           className={"descriptionButton"}
-          onClick={() => navigate("/category/speakers")}
+          onClick={() => navigate("/category/headphones/3")}
         >
           {children}
         </PrimaryButton>

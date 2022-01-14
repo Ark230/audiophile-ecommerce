@@ -13,6 +13,7 @@ import Wrapper from "./components/wrapper/wrapper.component";
 import CategoryContainer from "./pages/category/category.container";
 import { Routes, Route } from "react-router-dom";
 import { setUrlPathName } from "./redux/path/path.actions";
+import ProductDetailContainer from "./pages/product-detail/product-detail.container";
 
 const breakpoints = createBreakpoints({});
 
@@ -55,7 +56,7 @@ const theme = createMuiTheme({
 function App({ fetchImages, setUrlPathName }) {
   useEffect(() => {
     fetchImages();
-    setUrlPathName();
+    // setUrlPathName();
   }, [fetchImages]);
 
   return (
@@ -70,6 +71,10 @@ function App({ fetchImages, setUrlPathName }) {
               <Route
                 path="/category/:categoryId"
                 element={<CategoryContainer />}
+              />
+              <Route
+                path="/category/:categoryId/:productId"
+                element={<ProductDetailContainer />}
               />
             </Routes>
           </main>
