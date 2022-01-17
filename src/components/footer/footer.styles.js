@@ -9,7 +9,7 @@ export const useStyles = makeStyles((theme) => ({
     marginTop: "-3rem",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
-      padding: "5rem 2.5rem"
+      padding: "5rem 4.5rem"
     },
     [theme.breakpoints.only("md")]: {
       padding: "5rem 9rem"

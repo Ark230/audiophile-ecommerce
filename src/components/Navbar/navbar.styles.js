@@ -14,7 +14,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex"
   },
   appBar: {
-    padding: "1rem 8.5rem",
+    padding: "1rem 2.5rem",
     boxShadow: "none",
     backgroundColor: "#191919",
     position: "fixed",
@@ -23,6 +23,7 @@ export const useStyles = makeStyles((theme) => ({
     }
   },
   businessLogo: {
+    cursor: "pointer",
     [theme.breakpoints.down("sm")]: {
       position: "absolute",
       top: "30%",

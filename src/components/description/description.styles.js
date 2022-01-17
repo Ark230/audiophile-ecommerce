@@ -23,7 +23,7 @@ export const useStyles = makeStyles((theme) => ({
   productTitle: {
     fontSize: "5.6rem",
     fontWeight: "bold",
-    lineHeight: "5.8rem",
+    lineHeight: "4.8rem",
     letterSpacing: "2px",
     margin: ".8rem 0",
     [theme.breakpoints.only("xs")]: {

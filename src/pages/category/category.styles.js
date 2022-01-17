@@ -2,12 +2,13 @@ import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
   wrapper: {
-    paddingTop: "22rem",
-    paddingLeft: "0rem",
+    padding: "22rem 14.5rem 0 14.5rem",
     [theme.breakpoints.down("md")]: {
-      paddingTop: "35rem",
-      paddingLeft: "2.5rem",
-      paddingRight: "2.5rem"
+      padding: "35rem 9rem 0 9rem"
+    },
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: "4.5rem",
+      paddingRight: "4.5rem"
     }
   },
   descriptionContainerPosition: {
@@ -21,26 +22,29 @@ export const useStyles = makeStyles((theme) => ({
       },
       "& > [class*=productTitle]": {
         fontSize: "4rem",
-        width: "37.5rem"
+        width: "37.5rem",
+        [theme.breakpoints.down("md")]: {
+          margin: "0 auto"
+        },
+        [theme.breakpoints.down("xs")]: {
+          margin: "2rem auto"
+        }
       },
       "& > [class*=descriptionText]": {
         opacity: "0.5",
         width: "42.9rem",
         [theme.breakpoints.down("xs")]: {
-          width: "fit-content"
+          width: "80%"
         }
       },
-      "& > .descriptionButton": {},
-      [theme.breakpoints.down("md")]: {
-        textAlign: "center",
-        marginBottom: "5rem",
-
-        "& > [class*=productTitle]": {
-          margin: "0 auto"
-        },
-        "& > .descriptionButton": {
+      "& > .descriptionButton": {
+        [theme.breakpoints.down("md")]: {
           margin: "1rem auto"
         }
+      },
+      [theme.breakpoints.down("md")]: {
+        textAlign: "center",
+        marginBottom: "5rem"
       }
     },
     [theme.breakpoints.down("md")]: {
@@ -54,21 +58,34 @@ export const useStyles = makeStyles((theme) => ({
   productContainer: {
     display: "flex",
     justifyContent: "center",
-    margin: "0 0 15rem 2rem",
-    "& > img": { width: "52rem", height: "53rem", borderRadius: "8px" },
+    margin: "0 0 12rem 0",
+    "& > img": {
+      width: "52rem",
+      height: "53rem",
+      borderRadius: "8px",
+      [theme.breakpoints.down("md")]: {
+        width: "-webkit-fill-available",
+        height: "40rem",
+        alignSelf: "center"
+      },
+      [theme.breakpoints.down("sm")]: {
+        height: "100%",
+        width: "100%"
+      }
+    },
     "&:nth-child(2n)": {
       flexDirection: "row-reverse",
       "& > [class*=descriptionContainerPosition]": {
         marginLeft: "0",
-        marginRight: "13rem"
+        marginRight: "13rem",
+        [theme.breakpoints.down("md")]: {
+          marginLeft: "0",
+          marginRight: "0"
+        }
       },
       [theme.breakpoints.down("md")]: {
         flexDirection: "column",
-        paddingLeft: "3rem",
-        "& > [class*=descriptionContainerPosition]": {
-          marginLeft: "0rem",
-          marginRight: "0"
-        }
+        paddingLeft: "3rem"
       },
       [theme.breakpoints.down("sm")]: {
         paddingLeft: "revert"
@@ -77,35 +94,21 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
       paddingRight: "0",
-      "& > img": {
-        width: "-webkit-fill-available",
-        height: "40rem",
-        alignSelf: "center",
-        paddingRight: "5rem",
-        paddingLeft: "5rem"
-      }
+      margin: "0 0 5rem 0"
     },
     [theme.breakpoints.down("sm")]: {
-      margin: "0 0 0 2rem",
-      "& > img": {
-        height: "100%",
-        width: "100%"
-      }
-    },
-    [theme.breakpoints.down("xs")]: {
-      "& > img": {
-        paddingRight: "0",
-        paddingLeft: "0"
-      }
+      margin: "0"
     }
   },
   categoryShowcasePosition: {
-    marginBottom: "10rem",
-    padding: "0rem 14rem",
+    marginBottom: "12rem",
     marginTop: "25rem",
+    [theme.breakpoints.only("md")]: {
+      marginTop: "15rem"
+    },
     [theme.breakpoints.down("sm")]: {
-      padding: "0rem",
-      marginTop: "12rem"
+      padding: "0",
+      marginTop: "15rem"
     }
   }
 }));

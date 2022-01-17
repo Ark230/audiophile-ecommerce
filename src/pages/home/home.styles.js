@@ -49,7 +49,7 @@ export const useStyles = makeStyles((theme) => ({
       padding: "10rem 9rem"
     },
     [theme.breakpoints.down("sm")]: {
-      padding: "10rem 2.5rem"
+      padding: "10rem 4.5rem"
     }
   }
 }));

@@ -38,14 +38,13 @@ export const useStyles = makeStyles((theme) => ({
           width: "100%"
         }
       },
-      "& > .descriptionButton": {},
-      [theme.breakpoints.down("md")]: {
-        marginBottom: "5rem",
-
-        "& > [class*=productTitle]": {},
-        "& > .descriptionButton": {
+      "& > .descriptionButton": {
+        [theme.breakpoints.down("md")]: {
           margin: "1rem auto"
         }
+      },
+      [theme.breakpoints.down("md")]: {
+        marginBottom: "5rem"
       }
     },
     [theme.breakpoints.down("md")]: {
@@ -64,60 +63,34 @@ export const useStyles = makeStyles((theme) => ({
   productContainer: {
     display: "flex",
     justifyContent: "center",
-    margin: "0 0 15rem 0rem",
-    "& > img": { width: "52rem", height: "53rem", borderRadius: "8px" },
-    // "&:nth-child(2n)": {
-    //   flexDirection: "row-reverse",
-    //   "& > [class*=descriptionContainerPosition]": {
-    //     marginLeft: "0",
-    //     marginRight: "13rem"
-    //   },
-    //   [theme.breakpoints.down("md")]: {
-    //     flexDirection: "column",
-    //     paddingLeft: "3rem",
-    //     "& > [class*=descriptionContainerPosition]": {
-    //       marginLeft: "0rem",
-    //       marginRight: "0"
-    //     }
-    //   },
-    //   [theme.breakpoints.down("sm")]: {
-    //     paddingLeft: "revert"
-    //   }
-    // },
-    [theme.breakpoints.between("sm", "md")]: {
-      paddingRight: "0",
-      justifyContent: "space-around",
-      "& > img": {
-        width: "-webkit-fill-available",
-        height: "40rem",
-        alignSelf: "center",
-        paddingRight: "5rem",
-        paddingLeft: "5rem"
-      }
-    },
-    [theme.breakpoints.between("sm", "md")]: {
-      //   margin: "0 0 0 2rem",
-      justifyContent: "space-between",
-      width: "100%",
-      "& > img": {
+    marginBottom: "10rem",
+    "& > img": {
+      width: "52rem",
+      height: "53rem",
+      borderRadius: "8px",
+      [theme.breakpoints.between("sm", "md")]: {
         height: "55rem",
         width: "40%",
         padding: "0"
+      },
+      [theme.breakpoints.down("xs")]: {
+        width: "100%",
+        height: "100%"
       }
     },
+    [theme.breakpoints.between("sm", "md")]: {
+      paddingRight: "0",
+      justifyContent: "space-around"
+    },
+    [theme.breakpoints.between("sm", "md")]: {
+      justifyContent: "space-between",
+      width: "100%"
+    },
+    [theme.breakpoints.down("md")]: {
+      marginBottom: "8rem"
+    },
     [theme.breakpoints.down("xs")]: {
-      flexDirection: "column",
-      "& > img": {
-        width: "revert",
-        height: "40rem"
-      }
+      flexDirection: "column"
     }
-    // [theme.breakpoints.down("sm")]: {
-    //   margin: "0 0 0 2rem",
-    //   "& > img": {
-    //     height: "100%",
-    //     width: "100%"
-    //   }
-    // }
   }
 }));
