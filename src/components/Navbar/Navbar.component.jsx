@@ -24,62 +24,27 @@ import { selectPathName } from "../../redux/path/path.selector";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { setUrlPathName } from "../../redux/path/path.actions";
+import { handleCategoryDescription } from "./navbar.util";
 
 const Navbar = ({ setUrlPathName, pathName }) => {
   const classes = useStyles();
   const navigate = useNavigate();
 
   const [open, setOpen] = useState(false);
-
   const [category, setCategory] = useState("");
 
   const location = useLocation();
+  const { pathname } = location;
 
   useEffect(() => {
-    // handleCategoryDescription();
-  }, [category]);
+    setUrlPathName(pathname);
+    let categoryName = handleCategoryDescription(pathname);
+    setCategory(categoryName);
+    window.scrollTo(0, 0);
+  }, [location]);
 
-  const handleCategoryDescription = (path) => {
-    // location.pathname = /category/earphones
-    if (path !== undefined) {
-      setUrlPathName(path);
-      navigate(path);
-
-      if (path !== "/") {
-        let mySplit = path.split("/");
-        let mySplit2 = mySplit[2];
-
-        let re = new RegExp(`(category+\/${mySplit2})+(.*)`);
-
-        let results = re.exec(path);
-        if (results !== null) {
-          setCategory(mySplit2);
-        }
-      } else {
-        setCategory("");
-      }
-    } else {
-      if (location.pathname !== "/") {
-        let mySplit = location.pathname.split("/");
-        let mySplit2 = mySplit[2];
-
-        let re = new RegExp(`(category+\/${mySplit2})+(.*)`);
-
-        let results = re.exec(location.pathname);
-        if (results !== null) {
-          setCategory(mySplit2);
-        }
-      } else {
-        setCategory("");
-      }
-    }
-  };
-
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-  const handleDrawerClose = () => {
-    setOpen(false);
+  const handleDrawer = () => {
+    setOpen(!open);
   };
 
   const [menuName, setMenuName] = useState(null);
@@ -147,14 +112,14 @@ const Navbar = ({ setUrlPathName, pathName }) => {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            onClick={handleDrawerOpen}
+            onClick={handleDrawer}
             edge="start"
             className={clsx(classes.menuButton, open)}
           >
             <MenuIcon />
           </IconButton>
 
-          <a onClick={() => handleCategoryDescription("/")}>
+          <a onClick={() => navigate("/")}>
             <img
               className={classes.businessLogo}
               src={audiophileLogo}
@@ -172,7 +137,7 @@ const Navbar = ({ setUrlPathName, pathName }) => {
               <ListItem>
                 <a
                   className={`${classes.navItem} nav-animation`}
-                  onClick={() => handleCategoryDescription("/")}
+                  onClick={() => navigate("/")}
                 >
                   HOME
                 </a>
@@ -180,10 +145,7 @@ const Navbar = ({ setUrlPathName, pathName }) => {
               <ListItem>
                 <a
                   className={`${classes.navItem} nav-animation`}
-                  // to="/category/headphones"
-                  onClick={() =>
-                    handleCategoryDescription("/category/headphones")
-                  }
+                  onClick={() => navigate("/category/headphones")}
                 >
                   HEADPHONES
                 </a>
@@ -191,9 +153,7 @@ const Navbar = ({ setUrlPathName, pathName }) => {
               <ListItem>
                 <a
                   className={`${classes.navItem} nav-animation`}
-                  onClick={() =>
-                    handleCategoryDescription("/category/speakers")
-                  }
+                  onClick={() => navigate("/category/speakers")}
                 >
                   SPEAKERS
                 </a>
@@ -201,9 +161,7 @@ const Navbar = ({ setUrlPathName, pathName }) => {
               <ListItem>
                 <a
                   className={`${classes.navItem} nav-animation`}
-                  onClick={() =>
-                    handleCategoryDescription("/category/earphones")
-                  }
+                  onClick={() => navigate("/category/earphones")}
                 >
                   EARPHONES
                 </a>
@@ -225,10 +183,9 @@ const Navbar = ({ setUrlPathName, pathName }) => {
             light={true}
           />
         </div>
-        {/* ver si la ruta incluye algo relacionado a categoria: category/speakers */}
         {pathName !== "/" ? (
           <div className={clsx({ [classes.categoryDescription]: category })}>
-            <h1>{category.toUpperCase()}</h1>
+            <h1>{category ? category.toUpperCase() : ""}</h1>
           </div>
         ) : null}
       </AppBar>
@@ -237,7 +194,7 @@ const Navbar = ({ setUrlPathName, pathName }) => {
         className={classes.drawer}
         anchor="left"
         open={open}
-        onClose={handleDrawerClose}
+        onClose={handleDrawer}
         classes={{ paper: classes.drawerWidth }}
       >
         {menuName && (

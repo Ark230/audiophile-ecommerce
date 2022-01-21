@@ -1,15 +1,15 @@
 export const getImagePerDevice = (product, width) => {
   switch (width) {
     case "lg": //1200px >
-      return [product.images[0].gallery[0].desktop];
+      return [product.images.gallery.desktop];
     case "sm": //600px >
-      return [product.images[0].gallery[0].tablet];
+      return [product.images.gallery.tablet];
     case "md": //900px >
-      return [product.images[0].gallery[0].tablet];
+      return [product.images.gallery.tablet];
     case "xs": //600px <
-      return [product.images[0].gallery[0].mobile];
+      return [product.images.gallery.mobile];
     default:
-      return [product.images[0].gallery[0].desktop];
+      return [product.images.gallery.desktop];
   }
 };
 

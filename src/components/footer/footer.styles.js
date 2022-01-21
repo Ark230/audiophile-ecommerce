@@ -5,7 +5,8 @@ export const useStyles = makeStyles((theme) => ({
   footerPosition: {
     display: "flex",
     justifyContent: "space-between",
-    padding: "10rem 14.5rem",
+    // padding: "10rem 14.5rem",
+    padding: "5rem 14.5rem 10rem 14.5rem",
     marginTop: "-3rem",
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",

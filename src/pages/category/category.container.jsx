@@ -9,9 +9,9 @@ import { withWidth } from "@material-ui/core";
 const CategoryContainer = ({ fetchCollections, width }) => {
   const params = useParams();
   const { categoryId } = params;
-  useEffect(() => {
-    fetchCollections();
-  }, [fetchCollections]);
+  // useEffect(() => {
+  //   fetchCollections();
+  // }, [fetchCollections]);
 
   return (
     <div>

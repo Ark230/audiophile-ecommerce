@@ -5,14 +5,16 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectHomeImages } from "../../redux/gallery/gallery.selectors";
 
-const YX1Showcase = ({ images }) => {
+const YX1Showcase = ({ images, setUrlPathName }) => {
   const { gallery } = images ? images : {};
   const classes = useStyles({ imagesPerDevice: gallery });
   const descriptionProps = {
     isTitleVisible: false,
     variant: "tertiary",
     productName: "YX1 Earphones",
-    productDescription: null
+    productDescription: null,
+    productId: 6,
+    category: "earphones"
   };
 
   return (
