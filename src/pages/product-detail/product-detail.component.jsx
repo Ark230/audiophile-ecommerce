@@ -16,8 +16,12 @@ import CategoryShowcase from "../../components/category-showcase/category-showca
 const ProductDetailPage = (props) => {
   const classes = useStyles();
   let width = props.width;
-  let [[product]] = props.product ? props.product : [];
-  const [productGallery] = getImagePerDevice(product, width);
+
+  let [[product]] = props.product.length > 0 ? props.product : [[]];
+
+  const [productGallery] =
+    props.product.length > 0 ? getImagePerDevice(product, width) : [];
+
   const crossSellImages = getCrossSellImagesPerDevice(
     props.sharedImages,
     width
@@ -26,7 +30,7 @@ const ProductDetailPage = (props) => {
   return (
     <div className={classes.productDetailWrapper}>
       <ProductPreview product={product} productImage={productGallery} />
-      <ProductFeatures />
+      <ProductFeatures product={product} />
       <ProductGallery galleryImages={productGallery} />
       <ProductCrossSell crossSellImages={crossSellImages} />
       <div className={classes.categoryShowcasePosition}>

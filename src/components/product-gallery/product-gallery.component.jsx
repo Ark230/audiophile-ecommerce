@@ -14,14 +14,11 @@ const ProductGallery = ({ galleryImages }) => {
 
   return (
     <div className={classes.galleryContainer}>
-      {/* {images.map((image) => (
-        <img className={classes.galleryImage} src={image} />
-      ))} */}
       <div className={classes.subGalleryContainer}>
-        <img src={galleryImages.gallery1} />
-        <img src={galleryImages.gallery2} />
+        <img src={galleryImages ? galleryImages.gallery1 : ""} />
+        <img src={galleryImages ? galleryImages.gallery2 : ""} />
       </div>
-      <img src={galleryImages.gallery3} />
+      <img src={galleryImages ? galleryImages.gallery3 : ""} />
     </div>
   );
 };

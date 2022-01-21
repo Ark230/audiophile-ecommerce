@@ -4,37 +4,30 @@ import {
   SecondaryButton,
   TertiaryButton
 } from "./button.styles";
-import { useNavigate } from "react-router-dom";
 
-const Button = (props) => {
-  const { variant, children } = props;
-  const navigate = useNavigate();
-
+const Button = ({ handleClick, variant, path, children }) => {
   switch (variant) {
     case "primary":
       return (
-        <PrimaryButton className={"descriptionButton"}>
+        <PrimaryButton onClick={handleClick} className={"descriptionButton"}>
           {children}
         </PrimaryButton>
       );
     case "secondary":
       return (
-        <SecondaryButton className={"descriptionButton"}>
+        <SecondaryButton onClick={handleClick} className={"descriptionButton"}>
           {children}
         </SecondaryButton>
       );
     case "tertiary":
       return (
-        <TertiaryButton className={"descriptionButton"}>
+        <TertiaryButton onClick={handleClick} className={"descriptionButton"}>
           {children}
         </TertiaryButton>
       );
     default:
       return (
-        <PrimaryButton
-          className={"descriptionButton"}
-          onClick={() => navigate("/category/headphones/3")}
-        >
+        <PrimaryButton className={"descriptionButton"} onClick={handleClick}>
           {children}
         </PrimaryButton>
       );

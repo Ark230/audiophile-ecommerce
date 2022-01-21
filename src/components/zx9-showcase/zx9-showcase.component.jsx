@@ -16,7 +16,9 @@ const ZX9Showcase = ({ images }) => {
     variant: "secondary",
     productName: "ZX9 Speaker",
     productDescription:
-      "Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound."
+      "Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.",
+    productId: 1,
+    category: "speakers"
   };
 
   return (

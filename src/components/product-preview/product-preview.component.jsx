@@ -1,19 +1,28 @@
 import React from "react";
+import { useParams } from "react-router-dom";
 import { useStyles } from "./product-preview.styles";
 import Description from "../description/description.component";
 
 const ProductPreview = ({ product, productImage }) => {
   const classes = useStyles();
+  const params = useParams();
+
+  const descriptionProps = {
+    isTitleVisible: true,
+    productDetailPage: true,
+    productName: product ? product.name : "",
+    productDescription: product ? product.description : "",
+    productPrice: product ? product.price : 0
+  };
+
   return (
     <div className={classes.productContainer}>
-      <img className={classes.productImage} src={productImage.gallery4} />
+      <img
+        className={classes.productImage}
+        src={productImage ? productImage.gallery4 : ""}
+      />
       <div className={classes.descriptionContainerPosition}>
-        <Description
-          isTitleVisible={true}
-          productDetailPage={true}
-          productName={product.name}
-          productDescription={product.description}
-        />
+        <Description {...descriptionProps} />
       </div>
     </div>
   );

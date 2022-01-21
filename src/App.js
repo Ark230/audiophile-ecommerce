@@ -10,6 +10,7 @@ import Manrope from "./assets/fonts/Manrope/Manrope-VariableFont_wght.ttf";
 import Navbar from "./components/Navbar/Navbar.component";
 import { fetchImages } from "./redux/gallery/gallery.actions";
 import Wrapper from "./components/wrapper/wrapper.component";
+import { fetchCollections } from "./redux/shop/shop.actions";
 import CategoryContainer from "./pages/category/category.container";
 import { Routes, Route } from "react-router-dom";
 import { setUrlPathName } from "./redux/path/path.actions";
@@ -53,11 +54,12 @@ const theme = createMuiTheme({
   }
 });
 
-function App({ fetchImages, setUrlPathName }) {
+function App({ fetchImages, fetchCollections, setUrlPathName }) {
   useEffect(() => {
     fetchImages();
-    // setUrlPathName();
-  }, [fetchImages]);
+    fetchCollections();
+    setUrlPathName();
+  }, [fetchImages, fetchCollections]);
 
   return (
     <div>
@@ -89,7 +91,8 @@ function App({ fetchImages, setUrlPathName }) {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchImages: () => dispatch(fetchImages()),
-  setUrlPathName: () => dispatch(setUrlPathName(window.location.pathname))
+  setUrlPathName: () => dispatch(setUrlPathName(window.location.pathname)),
+  fetchCollections: () => dispatch(fetchCollections())
 });
 
 export default connect(null, mapDispatchToProps)(App);

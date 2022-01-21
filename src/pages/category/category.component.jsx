@@ -7,13 +7,6 @@ import Description from "../../components/description/description.component";
 import { selectCategory } from "../../redux/shop/shop.selectors";
 import { useStyles } from "./category.styles";
 
-/* breakpoints */
-// xs, extra-small: 0px
-// sm, small: 600px
-// md, medium: 900px
-// lg, large: 1200px
-// xl, extra-large: 1536px
-
 const CategoryPage = ({ category, width }) => {
   const classes = useStyles();
   const { products } = category;
@@ -24,30 +17,21 @@ const CategoryPage = ({ category, width }) => {
     switch (width) {
       case "lg": //1200px >
         item = products.find((item) => item.name === productName);
-        return item.images[0].desktopUrl;
+        return item.images.desktopUrl;
       case "sm": //600px >
         item = products.find((item) => item.name === productName);
-        return item.images[0].tabletUrl;
+        return item.images.tabletUrl;
       case "md": //900px >
         item = products.find((item) => item.name === productName);
-        return item.images[0].tabletUrl;
+        return item.images.tabletUrl;
       case "xs": //600px <
         item = products.find((item) => item.name === productName);
-        return item.images[0].mobileUrl;
+        return item.images.mobileUrl;
       default:
         item = products.find((item) => item.name === productName);
-        return item.images[0].desktopUrl;
+        return item.images.desktopUrl;
     }
   };
-
-  // const descriptionProps = {
-  //   isTitleVisible: true,
-  //   productDetailPage: false,
-  //   productName: "XX99 Mark II Headphones",
-  //   productDescription: `The new XX99 Mark II headphones is the pinnacle of pristine audio.
-  //   It redefines your premium headphone experience by reproducing the balanced depth and precision
-  //   of studio-quality sound.`
-  // };
 
   return (
     <div className={classes.wrapper}>
@@ -64,6 +48,8 @@ const CategoryPage = ({ category, width }) => {
                   productDetailPage={false}
                   productName={item.name}
                   productDescription={item.description}
+                  productId={item.id}
+                  category={category.name}
                 />
               </div>
             </div>

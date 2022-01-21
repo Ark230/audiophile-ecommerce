@@ -10,7 +10,9 @@ const Hero = (props) => {
     productDetailPage: false,
     productName: "XX99 Mark II Headphones",
     productDescription: `Experience natural, lifelike audio 
-        and exceptional build quality mode for the passionate music enthusiast.`
+        and exceptional build quality mode for the passionate music enthusiast.`,
+    productId: 3,
+    category: "headphones"
   };
 
   return (
