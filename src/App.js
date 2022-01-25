@@ -50,6 +50,15 @@ const theme = createMuiTheme({
           }
         }
       }
+    },
+    MuiDrawer: {
+      root: { zIndex: "200 !important" },
+      paperAnchorTop: {
+        top: "70px",
+        [breakpoints.down("xs")]: {
+          height: "50rem"
+        }
+      }
     }
   }
 });
