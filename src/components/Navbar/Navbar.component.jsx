@@ -9,7 +9,8 @@ import {
   Drawer,
   Divider,
   ListItemText,
-  Typography
+  Typography,
+  withWidth
 } from "@material-ui/core";
 import { Link, useNavigate } from "react-router-dom";
 import audiophileLogo from "../../assets/img/shared/desktop/logo.svg";
@@ -25,8 +26,10 @@ import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { setUrlPathName } from "../../redux/path/path.actions";
 import { handleCategoryDescription } from "./navbar.util";
+import { compose } from "redux";
+import SlideDownMenu from "../slide-down-menu/slide-down-menu.component";
 
-const Navbar = ({ setUrlPathName, pathName }) => {
+const Navbar = ({ setUrlPathName, pathName, width }) => {
   const classes = useStyles();
   const navigate = useNavigate();
 
@@ -38,9 +41,9 @@ const Navbar = ({ setUrlPathName, pathName }) => {
 
   useEffect(() => {
     setUrlPathName(pathname);
-    let categoryName = handleCategoryDescription(pathname);
-    setCategory(categoryName);
+    setCategory(handleCategoryDescription(pathname));
     window.scrollTo(0, 0);
+    setOpen(false);
   }, [location]);
 
   const handleDrawer = () => {
@@ -183,29 +186,16 @@ const Navbar = ({ setUrlPathName, pathName }) => {
             light={true}
           />
         </div>
-        {pathName !== "/" ? (
+        {pathName !== "/" && !open ? (
           <div className={clsx({ [classes.categoryDescription]: category })}>
             <h1>{category ? category.toUpperCase() : ""}</h1>
           </div>
         ) : null}
+
+        {width === "sm" || width === "xs" ? (
+          <SlideDownMenu open={open} />
+        ) : null}
       </AppBar>
-
-      <Drawer
-        className={classes.drawer}
-        anchor="left"
-        open={open}
-        onClose={handleDrawer}
-        classes={{ paper: classes.drawerWidth }}
-      >
-        {menuName && (
-          <ListItem button onClick={() => setMenuName(null)}>
-            <ListItemText primary="Back to main menu" />
-            <ChevronLeftIcon />
-          </ListItem>
-        )}
-
-        {displayMenuItems()}
-      </Drawer>
     </div>
   );
 };
@@ -218,4 +208,7 @@ const mapDispatchToProps = (dispatch) => ({
   setUrlPathName: (path) => dispatch(setUrlPathName(path))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navbar);
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withWidth()
+)(Navbar);
