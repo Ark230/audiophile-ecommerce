@@ -55,6 +55,19 @@ export const useStyles = makeStyles((theme) => ({
       color: "#D87D4A"
     }
   },
+  cartCounter: {
+    position: "absolute",
+    color: "white",
+    background: "#D87D4A",
+    borderRadius: "50%",
+    padding: "2.5px 5px",
+    top: "0",
+    right: "0",
+    [theme.breakpoints.down("xs")]: {
+      top: "-11px",
+      right: "-10px"
+    }
+  },
   navDivider: {
     background: "#ffffff",
     opacity: "0.2",

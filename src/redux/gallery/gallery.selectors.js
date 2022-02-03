@@ -7,7 +7,6 @@ const selectGalleryImages = createSelector(
   (gallery) => gallery.images
 );
 
-//Cambiar por Array.find();
 export const selectHomeImages = createSelector(
   [selectGalleryImages],
   (images) =>
@@ -18,6 +17,12 @@ export const selectSharedImages = createSelector(
   [selectGalleryImages],
   (images) =>
     images ? images.find((directory) => directory.name === "shared") : null
+);
+
+export const selectCartImages = createSelector(
+  [selectGalleryImages],
+  (images) =>
+    images ? images.find((directory) => directory.name === "cart") : null
 );
 
 export const selectIsGalleryLoaded = createSelector(
