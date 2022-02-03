@@ -27,8 +27,6 @@ const ProductDetailPage = (props) => {
     width
   );
 
-  console.log(product, width, productGallery);
-
   return (
     <div className={classes.productDetailWrapper}>
       <ProductPreview product={product} productImage={productGallery} />

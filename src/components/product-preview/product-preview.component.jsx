@@ -5,11 +5,12 @@ import Description from "../description/description.component";
 
 const ProductPreview = ({ product, productImage }) => {
   const classes = useStyles();
-  const params = useParams();
-  console.log(productImage, "what wrong");
+
   const descriptionProps = {
     isTitleVisible: true,
     productDetailPage: true,
+    productId: product ? product.id : 0,
+    productCartName: product ? product.cartName : "",
     productName: product ? product.name : "",
     productDescription: product ? product.description : "",
     productPrice: product ? product.price : 0
@@ -19,7 +20,7 @@ const ProductPreview = ({ product, productImage }) => {
     <div className={classes.productContainer}>
       <img
         className={classes.productImage}
-        src={productImage ? productImage.gallery4 : "aaa"}
+        src={productImage ? productImage.gallery4 : ""}
       />
       <div className={classes.descriptionContainerPosition}>
         <Description {...descriptionProps} />
