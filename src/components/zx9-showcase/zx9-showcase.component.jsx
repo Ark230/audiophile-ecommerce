@@ -24,7 +24,11 @@ const ZX9Showcase = ({ images }) => {
   return (
     <div className={classes.showcaseContainer}>
       <img alt="ZX9 Speaker" className={classes.speakerShowcase} />
-      <img className={classes.circlePattern} src={circlePattern} />
+      <img
+        alt="circle-pattern"
+        className={classes.circlePattern}
+        src={circlePattern}
+      />
 
       <div className={classes.productShowCasePosition}>
         <Description {...descriptionProps} />

@@ -10,11 +10,11 @@ const ProductFeatures = ({ product }) => {
       <div className={classes.featuresDetail}>
         <h2 className={classes.featuresTitle}>FEATURES</h2>
         {productFeatures
-          ? productFeatures.featureDescription
-              .split("\\n")
-              .map((item, idx) => (
-                <p className={classes.featuresParagraph}>{item}</p>
-              ))
+          ? productFeatures.featureDescription.split("\\n").map((item, idx) => (
+              <p key={idx} className={classes.featuresParagraph}>
+                {item}
+              </p>
+            ))
           : ""}
       </div>
 
@@ -22,8 +22,8 @@ const ProductFeatures = ({ product }) => {
         <h2>IN THE BOX</h2>
         <ul className={classes.productAddonsList}>
           {productFeatures
-            ? productFeatures.addons.map((addon) => (
-                <li>
+            ? productFeatures.addons.map((addon, idx) => (
+                <li key={idx}>
                   <span>{addon.quantity}</span> <p>{addon.name}</p>
                 </li>
               ))

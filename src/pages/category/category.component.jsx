@@ -1,5 +1,4 @@
 import React from "react";
-import clsx from "clsx";
 import { connect } from "react-redux";
 import CategoryShowcase from "../../components/category-showcase/category-showcase.component";
 
@@ -37,8 +36,9 @@ const CategoryPage = ({ category, width }) => {
     <div className={classes.wrapper}>
       {products
         ? products.map((item) => (
-            <div className={classes.productContainer}>
+            <div key={item.id} className={classes.productContainer}>
               <img
+                alt="category"
                 className={classes.productImage}
                 src={getImagePerDevice(width, item.name)}
               />

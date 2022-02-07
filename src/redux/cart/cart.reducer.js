@@ -1,10 +1,8 @@
 import CartActionTypes from "./cart.types";
 import {
   addCartItem,
-  increaseItemQuantity,
   sumItemsPrice,
   sumItemsQuantity,
-  reduceItemQuantity,
   handleQuantity
 } from "./cart.util";
 
@@ -17,7 +15,6 @@ const INITIAL_STATE = {
 const CartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case CartActionTypes.ADD_ITEM:
-      //una sola función que retorne todo con un objeto y destructurar...
       return {
         totalPrice: sumItemsPrice([...state.items], action.payload),
         totalQuantity: sumItemsQuantity([...state.items], action.payload),
@@ -33,7 +30,6 @@ const CartReducer = (state = INITIAL_STATE, action) => {
         totalPrice: 0,
         items: []
       };
-    //pasar todo en lugar de state.items
     case CartActionTypes.DECREASE_QUANTITY: {
       const { totalPrice, items, totalQuantity } = handleQuantity(
         action.type,

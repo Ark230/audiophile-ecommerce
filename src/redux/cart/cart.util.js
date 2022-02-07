@@ -54,6 +54,9 @@ export const handleQuantity = (type, productId, cart) => {
       }
 
       break;
+
+    default:
+      break;
   }
 
   return {

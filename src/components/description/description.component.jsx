@@ -1,18 +1,18 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import { useStyles } from "./description.styles";
 import Button from "../button/button.component";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { addItem } from "../../redux/cart/cart.actions";
+import { useEffect } from "react";
 
 const Description = (props) => {
   const navigate = useNavigate();
-  const [productQuantity, setProductQuantity] = useState(1);
+  const counterRef = useRef(1);
 
   const {
     isTitleVisible,
     productDetailPage,
-    variant,
     productName,
     productDescription,
     productId,
@@ -33,27 +33,38 @@ const Description = (props) => {
       id: productId,
       cartName: productCartName,
       name: productName,
-      price: productPrice * productQuantity,
-      quantity: productQuantity
+      price: productPrice * counterRef.current,
+      quantity: counterRef.current
     });
   };
 
   const handleQuantity = (method) => {
+    const input = document.getElementById("counter");
     if (method === "increase") {
-      setProductQuantity(productQuantity + 1);
-    } else if (method === "decrease" && productQuantity > 1) {
-      setProductQuantity(productQuantity - 1);
+      counterRef.current += 1;
+      input.textContent = counterRef.current;
+    } else if (method === "decrease" && counterRef.current > 1) {
+      counterRef.current -= 1;
+      input.textContent = counterRef.current;
     }
   };
+
+  useEffect(() => {
+    return () => {
+      const input = document.getElementById("counter");
+      if (input) {
+        counterRef.current = 1;
+        input.textContent = counterRef.current;
+      }
+    };
+  });
 
   return (
     <div className={classes.descriptionContainer}>
       {isTitleVisible && (
         <span className={classes.newProduct}>NEW PRODUCT</span>
       )}
-      <h1 className={classes.productTitle}>
-        {new String(productName).toUpperCase()}
-      </h1>
+      <h1 className={classes.productTitle}>{productName.toUpperCase()}</h1>
       <p className={classes.descriptionText}>{productDescription}</p>
       {productDetailPage ? (
         <div>
@@ -66,7 +77,8 @@ const Description = (props) => {
             >
               -
             </p>
-            <p>{productQuantity}</p>
+            <p id="counter">{counterRef.current}</p>
+
             <p
               className={classes.quantitySelector}
               onClick={() => handleQuantity("increase")}
