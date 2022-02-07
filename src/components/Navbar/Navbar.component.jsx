@@ -20,10 +20,9 @@ import { selectPathName } from "../../redux/path/path.selector";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { setUrlPathName } from "../../redux/path/path.actions";
-import { appendModalToNav, handleCategoryDescription } from "./navbar.util";
+import { handleCategoryDescription } from "./navbar.util";
 import { compose } from "redux";
 import SlideDownMenu from "../slide-down-menu/slide-down-menu.component";
-import CartItem from "../cart-item/cart-item.component";
 import CartItemContainer from "../cart-item/cart-item.container";
 import { selectCartQuantity } from "../../redux/cart/cart.selectors";
 
@@ -46,14 +45,10 @@ const Navbar = ({ setUrlPathName, pathName, width, cartQuantity }) => {
     setUrlPathName(pathname);
     setCategory(handleCategoryDescription(pathname));
     window.scrollTo(0, 0);
-  }, [location]);
+  }, [location, pathname]);
 
   const handleDrawer = () => {
     setOpen(!open);
-  };
-
-  const handleCartClose = () => {
-    setOpenCart(false);
   };
 
   return (
@@ -87,7 +82,6 @@ const Navbar = ({ setUrlPathName, pathName, width, cartQuantity }) => {
             className={classes.navContainer}
             container
             spacing={1}
-            xs={6}
             justify="space-around"
           >
             <List className={`${classes.nav} nav-underline`}>
@@ -151,11 +145,11 @@ const Navbar = ({ setUrlPathName, pathName, width, cartQuantity }) => {
         ) : null}
 
         {width === "sm" || width === "xs" ? (
-          <SlideDownMenu open={open} />
+          <SlideDownMenu open={open} handleSlideMenuClose={handleDrawer} />
         ) : null}
         <CartItemContainer
           openCart={openCart}
-          handleCartClose={handleCartClose}
+          handleCartClose={handleCartModal}
         />
       </AppBar>
     </div>

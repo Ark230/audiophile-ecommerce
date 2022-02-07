@@ -3,11 +3,11 @@ import { SwipeableDrawer } from "@material-ui/core";
 import CategoryShowcase from "../category-showcase/category-showcase.component";
 import { useStyles } from "./slide-down-menu.styles";
 
-const SlideDownMenu = ({ open }) => {
+const SlideDownMenu = ({ open, handleSlideMenuClose }) => {
   const classes = useStyles();
 
   return (
-    <SwipeableDrawer anchor={"top"} open={open}>
+    <SwipeableDrawer anchor={"top"} open={open} onClose={handleSlideMenuClose}>
       <div className={classes.categoryShowcasePosition}>
         <CategoryShowcase />
       </div>

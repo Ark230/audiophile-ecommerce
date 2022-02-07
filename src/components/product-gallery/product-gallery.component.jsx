@@ -15,10 +15,19 @@ const ProductGallery = ({ galleryImages }) => {
   return (
     <div className={classes.galleryContainer}>
       <div className={classes.subGalleryContainer}>
-        <img src={galleryImages ? galleryImages.gallery1 : ""} />
-        <img src={galleryImages ? galleryImages.gallery2 : ""} />
+        <img
+          alt="product-showcase-1"
+          src={galleryImages ? galleryImages.gallery1 : ""}
+        />
+        <img
+          alt="product-showcase-2"
+          src={galleryImages ? galleryImages.gallery2 : ""}
+        />
       </div>
-      <img src={galleryImages ? galleryImages.gallery3 : ""} />
+      <img
+        alt="product-showcase-3"
+        src={galleryImages ? galleryImages.gallery3 : ""}
+      />
     </div>
   );
 };

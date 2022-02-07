@@ -18,8 +18,12 @@ const ProductCrossSell = ({ crossSellImages }) => {
           .filter((image, idx) => idx < 3)
           .map((image) => {
             return (
-              <div className={classes.productCrossSellItem}>
+              <div
+                key={image.productId}
+                className={classes.productCrossSellItem}
+              >
                 <img
+                  alt="product-cross-sell"
                   className={classes.productCrossSellImage}
                   src={image.imageUrl}
                 />

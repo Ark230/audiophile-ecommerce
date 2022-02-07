@@ -38,9 +38,12 @@ export const useStyles = makeStyles((theme) => ({
           width: "100%"
         }
       },
-      "& > .descriptionButton": {
+      "& > div > .descriptionButton": {
         [theme.breakpoints.down("md")]: {
           margin: "1rem auto"
+        },
+        [theme.breakpoints.down("xs")]: {
+          width: "14rem"
         }
       },
       [theme.breakpoints.down("md")]: {

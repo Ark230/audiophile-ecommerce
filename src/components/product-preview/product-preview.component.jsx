@@ -1,5 +1,4 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import { useStyles } from "./product-preview.styles";
 import Description from "../description/description.component";
 
@@ -19,6 +18,7 @@ const ProductPreview = ({ product, productImage }) => {
   return (
     <div className={classes.productContainer}>
       <img
+        alt="product"
         className={classes.productImage}
         src={productImage ? productImage.gallery4 : ""}
       />

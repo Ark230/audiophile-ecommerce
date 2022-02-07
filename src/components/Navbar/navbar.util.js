@@ -5,7 +5,7 @@ export const handleCategoryDescription = (pathname) => {
       let re = new RegExp(`(category+\/${categoryName})+(.*)`);
       let results = re.exec(pathname);
 
-      if (results !== null && results[2] == "") {
+      if (results !== null && results[2] === "") {
         return categoryName;
       }
     } else {

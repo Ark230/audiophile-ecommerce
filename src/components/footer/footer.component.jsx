@@ -31,7 +31,7 @@ const Footer = ({ images }) => {
             make Audiophile the best place to buy your portable audio equipment.
           </p>
         </div>
-        <img className={classes.footerImage} />
+        <img alt="best-audio-gear" className={classes.footerImage} />
       </div>
 
       <div className={classes.footerRedirection}>

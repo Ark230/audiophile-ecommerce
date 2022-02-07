@@ -39,14 +39,17 @@ const CartItem = ({
                     <div className={classes.productDetail}>
                       <div className={classes.productInformationContainer}>
                         {gallery.map((image) => {
-                          if (image.productId === item.id)
+                          if (image.productId === item.id) {
                             return (
                               <img
+                                alt="galleryImage"
                                 className={classes.cartProductImage}
                                 src={image.imageUrl}
                                 key={image.productId}
                               />
                             );
+                          }
+                          return null;
                         })}
                         <div className={classes.productInformation}>
                           <p className={classes.productName}>{item.cartName}</p>

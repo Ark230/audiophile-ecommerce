@@ -1,7 +1,4 @@
 import { makeStyles } from "@material-ui/core";
-import yx1Desktop from "../../assets/img/home/desktop/image-earphones-yx1.jpg";
-import yx1Tablet from "../../assets/img/home/tablet/image-earphones-yx1.jpg";
-import yx1Mobile from "../../assets/img/home/mobile/image-earphones-yx1.jpg";
 
 export const useStyles = makeStyles((theme) => ({
   showcaseContainer: {
