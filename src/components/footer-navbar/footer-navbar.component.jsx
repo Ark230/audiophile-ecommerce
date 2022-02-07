@@ -1,5 +1,5 @@
 import React from "react";
-import audiophileLogo from "../../assets/img/shared/desktop/logo.svg";
+import audiophileLogo from "../../assets/img/logo.svg";
 import { useStyles } from "./footer-navbar.styles";
 import { useNavigate } from "react-router-dom";
 

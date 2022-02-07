@@ -35,6 +35,9 @@ export const useStyles = makeStyles((theme) => ({
   },
   navToolbar: {
     justifyContent: "space-around",
+    [theme.breakpoints.up("lg")]: {
+      padding: "0 12rem 0 12rem"
+    },
     [theme.breakpoints.down("sm")]: {
       justifyContent: "space-between"
     },

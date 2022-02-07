@@ -1,6 +1,6 @@
 import React from "react";
 import { useStyles } from "./zx9-showcase.styles";
-import circlePattern from "../../assets/img/home/desktop/pattern-circles.svg";
+import circlePattern from "../../assets/img/pattern-circles.svg";
 import Description from "../description/description.component";
 import { connect } from "react-redux";
 

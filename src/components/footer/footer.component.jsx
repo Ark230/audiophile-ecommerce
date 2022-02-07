@@ -1,8 +1,8 @@
 import React from "react";
 import FooterNavbar from "../footer-navbar/footer-navbar.component";
-import { ReactComponent as FacebookLogo } from "../../assets/img/shared/desktop/icon-facebook.svg";
-import { ReactComponent as InstagramLogo } from "../../assets/img/shared/desktop/icon-instagram.svg";
-import { ReactComponent as TwitterLogo } from "../../assets/img/shared/desktop/icon-twitter.svg";
+import { ReactComponent as FacebookLogo } from "../../assets/img/icon-facebook.svg";
+import { ReactComponent as InstagramLogo } from "../../assets/img/icon-instagram.svg";
+import { ReactComponent as TwitterLogo } from "../../assets/img/icon-twitter.svg";
 
 import { useStyles } from "./footer.styles";
 import { SvgIcon } from "@material-ui/core";
