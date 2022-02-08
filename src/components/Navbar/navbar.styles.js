@@ -38,6 +38,9 @@ export const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("lg")]: {
       padding: "0 12rem 0 12rem"
     },
+    [theme.breakpoints.only("md")]: {
+      padding: "0 9rem"
+    },
     [theme.breakpoints.down("sm")]: {
       justifyContent: "space-between"
     },

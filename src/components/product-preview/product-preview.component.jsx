@@ -1,10 +1,8 @@
 import React from "react";
-import { useStyles } from "./product-preview.styles";
+import "./product-preview.styles.scss";
 import Description from "../description/description.component";
 
 const ProductPreview = ({ product, productImage }) => {
-  const classes = useStyles();
-
   const descriptionProps = {
     isTitleVisible: true,
     productDetailPage: true,
@@ -16,13 +14,13 @@ const ProductPreview = ({ product, productImage }) => {
   };
 
   return (
-    <div className={classes.productContainer}>
+    <div className="product">
       <img
         alt="product"
-        className={classes.productImage}
+        className="product__product-image"
         src={productImage ? productImage.gallery4 : ""}
       />
-      <div className={classes.descriptionContainerPosition}>
+      <div className="product__description-container">
         <Description {...descriptionProps} />
       </div>
     </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "../../components/hero/hero.component";
 import "./home.styles.js";
+import "./home-styles.scss";
 import { useStyles } from "./home.styles";
 import CategoryShowcase from "../../components/category-showcase/category-showcase.component";
 import ZX7Showcase from "../../components/zx7-showcase/zx7-showcase.component";
@@ -15,7 +16,7 @@ const HomePage = ({ imagesPerDevice }) => {
       <section className={classes.heroSectionBg}>
         <Hero />
       </section>
-      <section className={classes.mainSection}>
+      <section className="main-section">
         <CategoryShowcase />
         <ZX9Showcase />
         <ZX7Showcase />

@@ -1,5 +1,6 @@
 import React from "react";
 import { useStyles } from "./yx1.showcase.styles";
+import "./yx1-showcase.styles.scss";
 import Description from "../description/description.component";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -18,9 +19,9 @@ const YX1Showcase = ({ images, setUrlPathName }) => {
   };
 
   return (
-    <div className={classes.showcaseContainer}>
+    <div className="showcase-yx1">
       <div className={classes.productShowCaseImage} />
-      <div className={classes.descriptionShowCasePosition}>
+      <div className="showcase-yx1__showcase-position">
         <Description {...descriptionProps} />
       </div>
     </div>
