@@ -1,0 +1,88 @@
+@import "../../sass/main.scss";
+
+.showcase {
+  height: 56rem;
+  margin-top: 13rem;
+  background: #d87d4a;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  position: relative;
+  @include respond-down(tab-port) {
+    height: 72rem;
+  }
+  @include respond(tab-landscape) {
+    min-width: 82rem;
+  }
+
+  & > &__product-img {
+    & > .showcase__circle-pattern {
+      position: absolute;
+      z-index: 5;
+      @include respond-down(tab-port) {
+        width: 68rem;
+        transform: translate(51%, 24%);
+        bottom: 50%;
+        right: 50%;
+      }
+      @include respond(tab-landscape) {
+        width: 100rem;
+        transform: translate(-23%, -6%);
+      }
+      @include respond-up(big-desktop) {
+        width: 100rem;
+        transform: translate(-18.5%, -6%);
+      }
+    }
+  }
+
+  & > &__product-showcase-position {
+    margin-left: 66rem;
+    margin-top: 11rem;
+    @include respond(phone) {
+      margin-top: 42rem;
+      margin-left: 1rem;
+    }
+    @include respond-down(tab-port) {
+      text-align: center;
+      margin-left: 25rem;
+      margin-top: 35rem;
+    }
+
+    @include respond-up(tab-landscape) {
+      position: absolute;
+      top: 21%;
+      left: 63%;
+      margin: 0;
+    }
+
+    & > .description {
+      & > * {
+        z-index: 100;
+      }
+
+      @include respond-down(tab-port) {
+        position: absolute;
+        transform: translate(51%, 97%);
+        bottom: 50%;
+        right: 50%;
+      }
+
+      & > .descriptionButton {
+        width: 42%;
+        @include respond-down(tab-port) {
+          margin: 2.5rem auto;
+        }
+      }
+
+      & > &__product-title {
+        word-spacing: 15rem;
+      }
+
+      & > &__description-text {
+        @include respond-down(tab-landscape) {
+          width: 30.9rem;
+        }
+      }
+    }
+  }
+}

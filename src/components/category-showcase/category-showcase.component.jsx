@@ -1,5 +1,6 @@
 import React from "react";
 import { useStyles } from "./category-showcase.styles";
+import "./category.styles.scss";
 import { Typography } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { connect } from "react-redux";
@@ -13,16 +14,16 @@ const CategoryShowcase = ({ images }) => {
   const classes = useStyles({ imagesPerDevice: gallery });
 
   return (
-    <div className={classes.showcaseContainer}>
-      <div className={classes.categoryContainer}>
+    <div className="category-showcase">
+      <div className="category-showcase__category">
         <img
           alt="headphones category"
           className={classes.headphonesShowcaseImage}
         />
-        <Typography className={classes.categoryName} variant="h3">
+        <Typography className="category-showcase__category-name" variant="h3">
           HEADPHONES
         </Typography>
-        <div className={classes.shopLink}>
+        <div className="category-showcase__shop-link">
           <Typography
             variant="h4"
             onClick={() => navigate("/category/headphones")}
@@ -32,15 +33,15 @@ const CategoryShowcase = ({ images }) => {
           <ChevronRightIcon />
         </div>
       </div>
-      <div className={classes.categoryContainer}>
+      <div className="category-showcase__category">
         <img
           alt="speakers category"
           className={classes.speakersShowcaseImage}
         />
-        <Typography className={classes.categoryName} variant="h3">
+        <Typography className="category-showcase__category-name" variant="h3">
           SPEAKERS
         </Typography>
-        <div className={classes.shopLink}>
+        <div className="category-showcase__shop-link">
           <Typography
             variant="h4"
             onClick={() => navigate("/category/speakers")}
@@ -50,15 +51,15 @@ const CategoryShowcase = ({ images }) => {
           <ChevronRightIcon />
         </div>
       </div>
-      <div className={classes.categoryContainer}>
+      <div className="category-showcase__category">
         <img
           alt="earphones category"
           className={classes.earphonesShowcaseImage}
         />
-        <Typography className={classes.categoryName} variant="h3">
+        <Typography className="category-showcase__category-name" variant="h3">
           EARPHONES
         </Typography>
-        <div className={classes.shopLink}>
+        <div className="category-showcase__shop-link">
           <Typography
             variant="h4"
             onClick={() => navigate("/category/earphones")}

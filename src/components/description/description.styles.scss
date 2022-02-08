@@ -1,0 +1,82 @@
+@import "../../sass/main.scss";
+
+.description {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  font-family: Manrope;
+  & > button {
+    margin-top: 2rem;
+  }
+
+  .description__new-product {
+    opacity: 0.5;
+    font-size: 1.8rem;
+    line-height: 1.9rem;
+    letter-spacing: 1rem;
+    margin-bottom: 1.5rem;
+    @include respond(phone) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .description__product-title {
+    font-size: 5.6rem;
+    font-weight: bold;
+    line-height: 4.8rem;
+    letter-spacing: 2px;
+    margin: 0.8rem 0;
+
+    @include respond(phone) {
+      font-size: 3.6rem;
+      line-height: 4rem;
+    }
+  }
+
+  .description__description-text {
+    opacity: 0.75;
+    font-size: 1.9rem;
+    line-height: 2.5rem;
+    font-weight: 200;
+    width: 34.9rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    @include respond-down(tab-port) {
+      margin: 2.3rem auto;
+      margin-bottom: 2rem;
+    }
+    @include respond(phone) {
+      width: revert;
+    }
+  }
+
+  .description__purchase {
+    .description__product-price {
+      margin-bottom: 3rem;
+      font-weight: bold;
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+    }
+
+    .description__quantity-input {
+      display: inline-flex;
+      font-size: 1.2rem;
+      background: #f1f1f1;
+      color: black;
+      width: 10rem;
+      padding: 1.65rem 0.5rem;
+      justify-content: space-around;
+      margin-right: 2rem;
+      transform: translateY(0.25rem);
+      @include respond-down(phone) {
+        width: 15rem;
+      }
+      .description__quantity-selector {
+        cursor: pointer;
+        &:hover {
+          color: #d87d4a;
+        }
+      }
+    }
+  }
+}

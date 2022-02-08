@@ -81,10 +81,10 @@ export const useStyles = makeStyles((theme) => ({
         height: "100%"
       }
     },
-    [theme.breakpoints.between("sm", "md")]: {
-      paddingRight: "0",
-      justifyContent: "space-around"
-    },
+    // [theme.breakpoints.between("sm", "md")]: {
+    //   paddingRight: "0",
+    //   justifyContent: "space-around"
+    // },
     [theme.breakpoints.between("sm", "md")]: {
       justifyContent: "space-between",
       width: "100%"
