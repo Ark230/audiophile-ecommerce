@@ -1,0 +1,41 @@
+@import "../../sass/main.scss";
+
+.hero {
+  @include respond-up(tab-landscape) {
+    position: absolute;
+    top: 22rem;
+    left: 9%;
+  }
+
+  @include respond-down(tab-port) {
+    position: absolute;
+    margin: 0;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-48%, -50%);
+  }
+
+  @include respond(phone) {
+    width: 32rem;
+    height: 29rem;
+    transform: translate(-49%, -40%);
+  }
+
+  & > .description {
+    & > .description__product-title {
+      @include respond-up(tab-port) {
+        line-height: 5.8rem;
+      }
+      @include respond-up(tab-landscape) {
+        width: 50%;
+      }
+    }
+
+    & > .descriptionButton {
+      @include respond-down(tab-port) {
+        margin: 2rem auto;
+      }
+    }
+  }
+}

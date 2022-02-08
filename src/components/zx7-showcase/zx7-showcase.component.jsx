@@ -1,6 +1,7 @@
-import { useStyles } from "./zx7-showcase.styles";
 import React from "react";
 import Description from "../description/description.component";
+import { useStyles } from "./zx7-showcase.styles";
+import "./zx7-showcase.styles.scss";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectHomeImages } from "../../redux/gallery/gallery.selectors";
@@ -20,7 +21,7 @@ const ZX7Showcase = ({ images }) => {
 
   return (
     <div className={classes.showcaseContainer}>
-      <div className={classes.descriptionShowCasePosition}>
+      <div className="showcase__zx7-showcase-position">
         <Description {...descriptionProps} />
       </div>
     </div>

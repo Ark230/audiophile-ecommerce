@@ -1,10 +1,11 @@
 import { React } from "react";
 import Description from "../description/description.component";
+import "./hero.styles.scss";
 
-import { useStyles } from "./hero.styles";
+// import { useStyles } from "./hero.styles";
 
 const Hero = (props) => {
-  const classes = useStyles();
+  // const classes = useStyles();
   const descriptionProps = {
     isTitleVisible: true,
     productDetailPage: false,
@@ -16,7 +17,7 @@ const Hero = (props) => {
   };
 
   return (
-    <div className={classes.containerHeroPosition}>
+    <div className="hero">
       <Description {...descriptionProps} />
     </div>
   );
