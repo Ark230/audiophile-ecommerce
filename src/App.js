@@ -1,7 +1,6 @@
 import HomePageContainer from "./pages/home/home.container";
 import { connect } from "react-redux";
 import { useEffect } from "react";
-import { fetchCollections } from "./redux/shop/shop.actions";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
@@ -10,6 +9,12 @@ import Footer from "./components/footer/footer.component";
 import Manrope from "./assets/fonts/Manrope/Manrope-VariableFont_wght.ttf";
 import Navbar from "./components/Navbar/Navbar.component";
 import { fetchImages } from "./redux/gallery/gallery.actions";
+import Wrapper from "./components/wrapper/wrapper.component";
+import { fetchCollections } from "./redux/shop/shop.actions";
+import CategoryContainer from "./pages/category/category.container";
+import { Routes, Route } from "react-router-dom";
+import { setUrlPathName } from "./redux/path/path.actions";
+import ProductDetailContainer from "./pages/product-detail/product-detail.container";
 
 const breakpoints = createBreakpoints({});
 
@@ -45,33 +50,58 @@ const theme = createMuiTheme({
           }
         }
       }
+    },
+    MuiDrawer: {
+      root: { zIndex: "200 !important" },
+      paperAnchorTop: {
+        top: "70px",
+        [breakpoints.down("xs")]: {
+          height: "50rem"
+        }
+      }
     }
   }
 });
 
-function App({ fetchCollections, fetchImages }) {
+function App({ fetchImages, fetchCollections, setUrlPathName }) {
   useEffect(() => {
-    fetchCollections();
     fetchImages();
-  }, []);
+    fetchCollections();
+    setUrlPathName();
+  }, [fetchImages, fetchCollections]);
 
   return (
     <div>
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Navbar />
-        <HomePageContainer />
-        <footer>
-          <Footer />
-        </footer>
+        <Wrapper>
+          <main>
+            <Routes>
+              <Route path="/" element={<HomePageContainer />} />
+              <Route
+                path="/category/:categoryId"
+                element={<CategoryContainer />}
+              />
+              <Route
+                path="/category/:categoryId/:productId"
+                element={<ProductDetailContainer />}
+              />
+            </Routes>
+          </main>
+          <footer>
+            <Footer />
+          </footer>
+        </Wrapper>
       </ThemeProvider>
     </div>
   );
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchCollections: () => dispatch(fetchCollections()),
-  fetchImages: () => dispatch(fetchImages())
+  fetchImages: () => dispatch(fetchImages()),
+  setUrlPathName: () => dispatch(setUrlPathName(window.location.pathname)),
+  fetchCollections: () => dispatch(fetchCollections())
 });
 
 export default connect(null, mapDispatchToProps)(App);

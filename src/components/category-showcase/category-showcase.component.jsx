@@ -5,8 +5,10 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 import { selectSharedImages } from "../../redux/gallery/gallery.selectors";
+import { useNavigate } from "react-router-dom";
 
 const CategoryShowcase = ({ images }) => {
+  const navigate = useNavigate();
   const { gallery } = images ? images : {};
   const classes = useStyles({ imagesPerDevice: gallery });
 
@@ -21,7 +23,12 @@ const CategoryShowcase = ({ images }) => {
           HEADPHONES
         </Typography>
         <div className={classes.shopLink}>
-          <Typography variant="h4">SHOP</Typography>
+          <Typography
+            variant="h4"
+            onClick={() => navigate("/category/headphones")}
+          >
+            SHOP
+          </Typography>
           <ChevronRightIcon />
         </div>
       </div>
@@ -34,7 +41,12 @@ const CategoryShowcase = ({ images }) => {
           SPEAKERS
         </Typography>
         <div className={classes.shopLink}>
-          <Typography variant="h4">SHOP</Typography>
+          <Typography
+            variant="h4"
+            onClick={() => navigate("/category/speakers")}
+          >
+            SHOP
+          </Typography>
           <ChevronRightIcon />
         </div>
       </div>
@@ -47,7 +59,12 @@ const CategoryShowcase = ({ images }) => {
           EARPHONES
         </Typography>
         <div className={classes.shopLink}>
-          <Typography variant="h4">SHOP</Typography>
+          <Typography
+            variant="h4"
+            onClick={() => navigate("/category/earphones")}
+          >
+            SHOP
+          </Typography>
           <ChevronRightIcon />
         </div>
       </div>

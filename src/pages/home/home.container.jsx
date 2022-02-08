@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+
 import { selectHomeImages } from "../../redux/gallery/gallery.selectors";
 import HomePage from "./home.component";
 

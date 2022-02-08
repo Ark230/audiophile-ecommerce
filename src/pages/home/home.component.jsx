@@ -12,17 +12,15 @@ const HomePage = ({ imagesPerDevice }) => {
 
   return (
     <div>
-      <main>
-        <section className={classes.heroSectionBg}>
-          <Hero />
-        </section>
-        <section className={classes.mainSection}>
-          <CategoryShowcase />
-          <ZX9Showcase />
-          <ZX7Showcase />
-          <YX1Showcase />
-        </section>
-      </main>
+      <section className={classes.heroSectionBg}>
+        <Hero />
+      </section>
+      <section className={classes.mainSection}>
+        <CategoryShowcase />
+        <ZX9Showcase />
+        <ZX7Showcase />
+        <YX1Showcase />
+      </section>
     </div>
   );
 };

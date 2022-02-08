@@ -1,165 +1,171 @@
-import React, { useState } from 'react';
-import {AppBar, Grid, Toolbar, 
-        List, ListItem, Link, IconButton, Drawer, Divider, ListItemText, Typography,
-        } from '@material-ui/core'
-import audiophileLogo from '../../assets/img/shared/desktop/logo.svg';
-import cartIcon from '../../assets/img/cart/cart-icon.svg';
+import React, { useEffect, useState } from "react";
+import {
+  AppBar,
+  Grid,
+  Toolbar,
+  List,
+  ListItem,
+  IconButton,
+  Divider,
+  withWidth
+} from "@material-ui/core";
+import { useNavigate } from "react-router-dom";
+import audiophileLogo from "../../assets/img/shared/desktop/logo.svg";
+import cartIcon from "../../assets/img/cart/cart-icon.svg";
 import MenuIcon from "@material-ui/icons/Menu";
-import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-import clsx from 'clsx';
-import { useStyles } from './navbar.styles';
+import clsx from "clsx";
+import { useStyles } from "./navbar.styles";
+import { useLocation } from "react-router-dom";
+import { selectPathName } from "../../redux/path/path.selector";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+import { setUrlPathName } from "../../redux/path/path.actions";
+import { handleCategoryDescription } from "./navbar.util";
+import { compose } from "redux";
+import SlideDownMenu from "../slide-down-menu/slide-down-menu.component";
+import CartItemContainer from "../cart-item/cart-item.container";
+import { selectCartQuantity } from "../../redux/cart/cart.selectors";
 
+const Navbar = ({ setUrlPathName, pathName, width, cartQuantity }) => {
+  const classes = useStyles();
+  const navigate = useNavigate();
 
+  const [open, setOpen] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
+  const [category, setCategory] = useState("");
 
-const Navbar = () => {
-    const classes = useStyles();
+  const location = useLocation();
+  const { pathname } = location;
 
-    const [open, setOpen] = useState(false);
+  const handleCartModal = () => {
+    setOpenCart(!openCart);
+  };
 
-    const handleDrawerOpen = () => {
-        setOpen(true);
-    }
-    const handleDrawerClose = () => {
-        setOpen(false);
-    }
+  useEffect(() => {
+    setUrlPathName(pathname);
+    setCategory(handleCategoryDescription(pathname));
+    window.scrollTo(0, 0);
+  }, [location, pathname]);
 
-    const [menuName, setMenuName] = useState(null);
+  const handleDrawer = () => {
+    setOpen(!open);
+  };
 
-    const mainMenuListArr = ['Headphones', 'Earphones', 'Speakers'];
+  return (
+    <div>
+      <AppBar
+        id="appBar"
+        position="static"
+        className={classes.appBar}
+        color="transparent"
+        style={{ zIndex: "1302" }}
+      >
+        <Toolbar style={{ zIndex: "1302" }} className={classes.navToolbar}>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            onClick={handleDrawer}
+            edge="start"
+            className={clsx(classes.menuButton, open)}
+          >
+            <MenuIcon />
+          </IconButton>
 
-    const subMenuObj = {
-        headphones:[
-            {name:'XX99 Mark II Headphones'},
-            {name:'XX99 Mark I Headphones'},
-            {name:'XX59 Headphones'}
-        ],
-        speakers:[
-            {name: 'ZX9 Speaker'},
-            {name: 'ZX7 Speaker'}
-        ],
-        earphones:[
-            {name: 'YX1 Wireless Earphones'}
-        ]
-    };
-
-   const hasSubMenu = (item) => (
-        subMenuObj[item] ? true: false
-   )
-
-    const displayMenuItems = () => {
-        
-
-        let menuItemList = menuName ? subMenuObj[menuName] : mainMenuListArr;
-
-        if(menuName){
-            menuItemList = menuItemList.map(item => {
-                if(typeof(item) === 'object'){
-                    return item.name;
-                }
-            });
-            
-        }
-
-        const clickListener = (text) => {
-            if(!menuName){ 
-                return setMenuName(text.toLowerCase());
-            }
-        }
-
-        return(
-            <div className={classes.list} role="presentation">
-               { !menuName && <Typography variant="h6" align="center">Categories</Typography>}
-                <Divider/>
-                <List>
-                    {
-                      
-                      menuItemList.map((text, index) => (
-                            <ListItem button key={index} onClick={() => clickListener(text)}>
-                                <ListItemText primary={text} />
-                                {hasSubMenu(text.toLowerCase()) && <ChevronRightIcon />}
-                            </ListItem>
-                        ))
-                        
-                    }
-                </List>
-            </div>
-        );
-    };
-
-    return (
-      <div>
-        <AppBar position="static" className={classes.appBar} color="transparent">
-            <Toolbar className={classes.navToolbar}>
-
-                <IconButton
-                    color="inherit"
-                    aria-label="open drawer"
-                    onClick={handleDrawerOpen}
-                    edge="start"
-                    className={clsx(classes.menuButton, open)}
+          <a onClick={() => navigate("/")}>
+            <img
+              className={classes.businessLogo}
+              src={audiophileLogo}
+              alt="Audiophile Logo"
+            />
+          </a>
+          <Grid
+            className={classes.navContainer}
+            container
+            spacing={1}
+            justify="space-around"
+          >
+            <List className={`${classes.nav} nav-underline`}>
+              <ListItem>
+                <a
+                  className={`${classes.navItem} nav-animation`}
+                  onClick={() => navigate("/")}
                 >
-                    <MenuIcon/>
-                </IconButton>        
+                  HOME
+                </a>
+              </ListItem>
+              <ListItem>
+                <a
+                  className={`${classes.navItem} nav-animation`}
+                  onClick={() => navigate("/category/headphones")}
+                >
+                  HEADPHONES
+                </a>
+              </ListItem>
+              <ListItem>
+                <a
+                  className={`${classes.navItem} nav-animation`}
+                  onClick={() => navigate("/category/speakers")}
+                >
+                  SPEAKERS
+                </a>
+              </ListItem>
+              <ListItem>
+                <a
+                  className={`${classes.navItem} nav-animation`}
+                  onClick={() => navigate("/category/earphones")}
+                >
+                  EARPHONES
+                </a>
+              </ListItem>
+            </List>
+          </Grid>
 
+          <IconButton
+            color="inherit"
+            aria-label="menu"
+            className={classes.cartIcon}
+            onClick={handleCartModal}
+          >
+            <img src={cartIcon} alt="Cart Icon" />
+            {cartQuantity > 0 ? (
+              <span className={classes.cartCounter}>{cartQuantity}</span>
+            ) : null}
+          </IconButton>
+        </Toolbar>
+        <div>
+          <Divider
+            className={`${classes.navDivider} nav-divider`}
+            light={true}
+          />
+        </div>
+        {pathName !== "/" && !open ? (
+          <div className={clsx({ [classes.categoryDescription]: category })}>
+            <h1>{category ? category.toUpperCase() : ""}</h1>
+          </div>
+        ) : null}
 
-                <img className={classes.businessLogo} src={audiophileLogo} alt="Audiophile Logo"/>
-                    <Grid className={classes.navContainer} container spacing={1} xs={6} justify="space-around" >
-                        
-                        <List className={`${classes.nav} nav-underline`}>
-                            <ListItem>
-                                    <Link color="inherit" className={`${classes.navItem} nav-animation`} variant="h5" underline="none">HOME</Link>
-                            </ListItem>
-                            <ListItem>
-                                    <Link color="inherit" className={`${classes.navItem} nav-animation`} variant="h5" underline="none">HEADPHONES</Link>
-                            </ListItem>
-                            <ListItem>
-                                    <Link color="inherit" className={`${classes.navItem} nav-animation`} variant="h5" underline="none">SPEAKER</Link>
-                            </ListItem>
-                            <ListItem>
-                                    <Link color="inherit" className={`${classes.navItem} nav-animation`} variant="h5" underline="none">EARPHONES</Link>
-                            </ListItem>
-                        </List>
-
-                    </Grid>
-
-                    <IconButton 
-                        color="inherit"
-                        aria-label="menu"
-                        className={classes.cartIcon}
-                        >
-                        <img  src={cartIcon} alt="Cart Icon"/>
-                    </IconButton>    
-
-            </Toolbar>
-            <div> <Divider className={`${classes.navDivider} nav-divider`}  light={true}/></div>
-
-        </AppBar>
-
-        <Drawer
-            className={classes.drawer}
-            anchor="left"
-            open={open}
-            onClose={handleDrawerClose}
-            classes={{paper: classes.drawerWidth}}
-        >
-        
-        {menuName && (
-            <ListItem button onClick={() => setMenuName(null)}>
-                <ListItemText primary="Back to main menu" />
-                <ChevronLeftIcon/>
-            </ListItem>
-
-
-        )}
-      
-        {displayMenuItems()}
-            
-        </Drawer>
-    </div>  
-    );
+        {width === "sm" || width === "xs" ? (
+          <SlideDownMenu open={open} handleSlideMenuClose={handleDrawer} />
+        ) : null}
+        <CartItemContainer
+          openCart={openCart}
+          handleCartClose={handleCartModal}
+        />
+      </AppBar>
+    </div>
+  );
 };
 
+const mapStateToProps = createStructuredSelector({
+  pathName: selectPathName,
+  cartQuantity: selectCartQuantity
+});
 
+const mapDispatchToProps = (dispatch) => ({
+  setUrlPathName: (path) => dispatch(setUrlPathName(path))
+});
 
-export default Navbar;
+export default compose(
+  connect(mapStateToProps, mapDispatchToProps),
+  withWidth()
+)(Navbar);

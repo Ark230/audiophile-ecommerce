@@ -18,8 +18,9 @@ export const fetchImagesFailure = (error) => ({
 export const fetchImages = () => {
   return async (dispatch) => {
     try {
-      dispatch(fetchImagesStart);
-      dispatch(fetchImagesSuccess(await getGalleryImages()));
+      dispatch(fetchImagesStart());
+      const data = await getGalleryImages();
+      dispatch(fetchImagesSuccess(data));
     } catch (error) {
       dispatch(fetchImagesFailure(error));
     }

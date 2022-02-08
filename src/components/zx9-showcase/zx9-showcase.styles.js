@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
   showcaseContainer: {
     height: "56rem",
-    marginTop: "10rem",
+    marginTop: "13rem",
     background: "#D87D4A",
     borderRadius: ".8rem",
     overflow: "hidden",
@@ -80,7 +80,7 @@ export const useStyles = makeStyles((theme) => ({
       "& > .descriptionButton": {
         width: "42%",
         [theme.breakpoints.down("sm")]: {
-          margin: "2.5rem 9rem"
+          margin: "2.5rem auto"
         }
       },
       "& > [class*=productTitle]": {

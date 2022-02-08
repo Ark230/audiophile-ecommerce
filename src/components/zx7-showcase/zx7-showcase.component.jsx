@@ -13,7 +13,9 @@ const ZX7Showcase = ({ images }) => {
     isTitleVisible: false,
     variant: "tertiary",
     productName: "ZX7 Speaker",
-    productDescription: null
+    productDescription: null,
+    productId: 2,
+    category: "speakers"
   };
 
   return (

@@ -1,7 +1,8 @@
 import GalleryActionTypes from "./gallery.types";
 
 const INITIAL_STATE = {
-  images: null
+  images: null,
+  isFetching: false
 };
 
 const GalleryReducer = (state = INITIAL_STATE, actions) => {
@@ -9,17 +10,19 @@ const GalleryReducer = (state = INITIAL_STATE, actions) => {
     case GalleryActionTypes.FETCH_IMAGES_START:
       return {
         ...state,
-        isFetching: false
+        isFetching: true
       };
     case GalleryActionTypes.FETCH_IMAGES_SUCCESS:
       return {
         ...state,
-        images: actions.payload
+        images: actions.payload,
+        isFetching: false
       };
     case GalleryActionTypes.FETCH_IMAGES_FAILURE:
       return {
         ...state,
-        error: actions.payload
+        error: actions.payload,
+        isFetching: false
       };
 
     default:
