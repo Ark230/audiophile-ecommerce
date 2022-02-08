@@ -10,8 +10,8 @@ import {
   withWidth
 } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
-import audiophileLogo from "../../assets/img/shared/desktop/logo.svg";
-import cartIcon from "../../assets/img/cart/cart-icon.svg";
+import audiophileLogo from "../../assets/img/logo.svg";
+import cartIcon from "../../assets/img/icon-cart.svg";
 import MenuIcon from "@material-ui/icons/Menu";
 import clsx from "clsx";
 import { useStyles } from "./navbar.styles";
