@@ -40,6 +40,9 @@ export const useStyles = makeStyles((theme) => ({
         width: "20rem",
         fontSize: "1.625rem",
         lineHeight: "2.25rem"
+      },
+      "& > [class*=descriptionText]": {
+        display: "none"
       }
     }
   },
