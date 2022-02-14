@@ -1,8 +1,9 @@
 import HomePageContainer from "./pages/home/home.container";
 import { connect } from "react-redux";
+import { compose } from "redux";
 import { useEffect } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { ThemeProvider } from "@material-ui/core";
+import { ThemeProvider, withWidth } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
 import Footer from "./components/footer/footer.component";
@@ -63,7 +64,8 @@ const theme = createMuiTheme({
   }
 });
 
-function App({ fetchImages, fetchCollections, setUrlPathName }) {
+function App({ fetchImages, fetchCollections, setUrlPathName, width }) {
+  console.log(width);
   useEffect(() => {
     fetchImages();
     fetchCollections();
@@ -104,4 +106,4 @@ const mapDispatchToProps = (dispatch) => ({
   fetchCollections: () => dispatch(fetchCollections())
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default compose(connect(null, mapDispatchToProps), withWidth())(App);
