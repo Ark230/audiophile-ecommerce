@@ -1,9 +1,6 @@
 import React from "react";
 import { useStyles } from "./zx9-showcase.styles";
-<<<<<<< HEAD
-=======
 import "./zx9-showcase-styles.scss";
->>>>>>> hotfix/css-styles-issue-home-page
 import circlePattern from "../../assets/img/pattern-circles.svg";
 import Description from "../description/description.component";
 import { connect } from "react-redux";
@@ -34,7 +31,7 @@ const ZX9Showcase = ({ images }) => {
         src={circlePattern}
       />
 
-      <div className="showcase__product-showcase-position">
+      <div className="showcase__zx9-showcase-position">
         <Description {...descriptionProps} />
       </div>
     </div>

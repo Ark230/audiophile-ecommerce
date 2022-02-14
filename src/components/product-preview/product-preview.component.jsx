@@ -1,11 +1,8 @@
 import React from "react";
-// import { useStyles } from "./product-preview.styles";
-import "./product.styles.scss";
+import "./product-preview.styles.scss";
 import Description from "../description/description.component";
 
 const ProductPreview = ({ product, productImage }) => {
-  // const classes = useStyles();
-
   const descriptionProps = {
     isTitleVisible: true,
     productDetailPage: true,

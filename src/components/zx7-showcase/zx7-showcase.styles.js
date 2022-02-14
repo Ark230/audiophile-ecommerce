@@ -43,25 +43,25 @@ export const useStyles = makeStyles((theme) => ({
       backgroundPosition: "center",
       height: "38rem"
     })
-  }),
-  descriptionShowCasePosition: {
-    position: "absolute",
-    left: "8%",
-    top: "24%",
-    "& > [class*=descriptionContainer]": {
-      "& > [class*=productTitle]": {
-        color: "#000000",
-        fontSize: "3.5rem",
-        lineHeight: "4.75rem",
-        letterSpacing: ".25rem"
-      },
-      "& > [class*=descriptionButton]": {
-        [theme.breakpoints.only("xs")]: {
-          width: "20rem",
-          fontSize: "1.625rem",
-          lineHeight: "2.25rem"
-        }
-      }
-    }
-  }
+  })
+  //   ,descriptionShowCasePosition: {
+  //     position: "absolute",
+  //     left: "8%",
+  //     top: "24%",
+  //     "& > [class*=descriptionContainer]": {
+  //       "& > [class*=productTitle]": {
+  //         color: "#000000",
+  //         fontSize: "3.5rem",
+  //         lineHeight: "4.75rem",
+  //         letterSpacing: ".25rem"
+  //       },
+  //       "& > [class*=descriptionButton]": {
+  //         [theme.breakpoints.only("xs")]: {
+  //           width: "20rem",
+  //           fontSize: "1.625rem",
+  //           lineHeight: "2.25rem"
+  //         }
+  //       }
+  //     }
+  //   }
 }));

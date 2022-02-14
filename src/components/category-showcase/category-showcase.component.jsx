@@ -1,6 +1,6 @@
 import React from "react";
 import { useStyles } from "./category-showcase.styles";
-import "./category.styles.scss";
+import "./category-showcase.styles.scss";
 import { Typography } from "@material-ui/core";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { connect } from "react-redux";
