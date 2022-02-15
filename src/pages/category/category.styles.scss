@@ -1,0 +1,121 @@
+@import "../../sass/main.scss";
+
+.section-wrapper {
+  padding: 22rem 14.5rem 0 14.5rem;
+  @include respond-down(tab-landscape) {
+    padding: 35rem 9rem 0 9rem;
+  }
+  @include respond-down(tab-port) {
+    padding-left: 4.5rem;
+    padding-right: 4.5rem;
+  }
+
+  .product {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 12rem 0;
+    & > .product__image {
+      width: 52rem;
+      height: 53rem;
+      border-radius: 8px;
+
+      @include respond-down(tab-landscape) {
+        width: -webkit-fill-available;
+        height: 40rem;
+        align-self: center;
+      }
+      @include respond-down(tab-port) {
+        height: 100%;
+        width: 100%;
+      }
+    }
+
+    &:nth-child(2n) {
+      flex-direction: row-reverse;
+      .description-position {
+        margin-left: 0;
+        margin-right: 13rem;
+        @include respond-down(tab-landscape) {
+          margin-left: 0;
+          margin-right: 0;
+        }
+      }
+
+      @include respond-down(tab-landscape) {
+        flex-direction: column;
+        padding-left: 3rem;
+      }
+
+      @include respond-down(tab-port) {
+        padding-left: revert;
+      }
+    }
+
+    @include respond-down(tab-landscape) {
+      flex-direction: column;
+      padding-right: 0;
+      margin: 0 0 5rem 0;
+    }
+
+    @include respond-down(tab-landscape) {
+      margin: 0;
+    }
+
+    .description-position {
+      margin-left: 13rem;
+      align-self: center;
+      & > .description {
+        color: black;
+        & > .description__new-product {
+          color: #d87d4a;
+          opacity: revert;
+        }
+        & > .description__product-title {
+          font-size: 4rem;
+          width: 37.5rem;
+          @include respond-down(tab-landscape) {
+            margin: 0 auto;
+          }
+          @include respond-down(tab-landscape) {
+            margin: 2rem auto;
+          }
+        }
+        & > .description__description-text {
+          opacity: 0.5;
+          width: 42.9rem;
+          @include respond-down(phone) {
+            width: 80%;
+          }
+        }
+        & > .descriptionButton {
+          @include respond-down(tab-landscape) {
+            margin: 1rem auto;
+          }
+        }
+        @include respond-down(tab-landscape) {
+          text-align: center;
+          margin-bottom: 5rem;
+        }
+      }
+      @include respond-down(tab-landscape) {
+        margin: 5rem 0 5rem 0;
+      }
+      @include respond-down(tab-port) {
+        margin: 5rem 0 3rem 0;
+      }
+    }
+  }
+
+  .category-showcase-position {
+    margin-bottom: 12rem;
+    margin-top: 25rem;
+    @include respond(tab-landscape) {
+      margin-top: 15rem;
+    }
+
+    @include respond-down(tab-port) {
+      padding: 0;
+      margin-top: 15rem;
+    }
+  }
+}
