@@ -124,6 +124,11 @@ export const useStyles = makeStyles((theme) => ({
     fontSize: "1.25rem",
     lineHeight: "4.4rem",
     letterSpacing: "1.5px",
+    "& >h1": {
+      [theme.breakpoints.up("md")]: {
+        margin: "2rem 0"
+      }
+    },
     [theme.breakpoints.down("md")]: {
       margin: "4rem 0"
     },

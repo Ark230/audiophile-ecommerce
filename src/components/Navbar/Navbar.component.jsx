@@ -58,9 +58,8 @@ const Navbar = ({ setUrlPathName, pathName, width, cartQuantity }) => {
         position="static"
         className={classes.appBar}
         color="transparent"
-        style={{ zIndex: "1302" }}
       >
-        <Toolbar style={{ zIndex: "1302" }} className={classes.navToolbar}>
+        <Toolbar className={classes.navToolbar}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
