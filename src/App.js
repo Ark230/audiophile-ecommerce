@@ -57,7 +57,7 @@ const theme = createMuiTheme({
       paperAnchorTop: {
         top: "70px",
         [breakpoints.down("xs")]: {
-          height: "50rem"
+          height: "40rem"
         }
       }
     }
@@ -65,7 +65,6 @@ const theme = createMuiTheme({
 });
 
 function App({ fetchImages, fetchCollections, setUrlPathName, width }) {
-  console.log(width);
   useEffect(() => {
     fetchImages();
     fetchCollections();
