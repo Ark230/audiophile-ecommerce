@@ -1,5 +1,5 @@
 import React from "react";
-import { useStyles } from "./cart-item.styles";
+import "./cart-item.styles.scss";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Button from "../button/button.component";
@@ -13,7 +13,6 @@ const CartItem = ({
   increaseQuantity,
   decreaseQuantity
 }) => {
-  const classes = useStyles();
   const { gallery } = cartImages ? cartImages : {};
 
   return (
@@ -23,27 +22,27 @@ const CartItem = ({
       open={openCart}
       onClose={handleCartClose}
     >
-      <Box className={classes.modalBox}>
+      <Box className="cart-modal">
         {cart.items.length > 0 ? (
           <React.Fragment>
-            <div className={classes.boxHeader}>
+            <div className="cart-modal__header">
               <h2>Cart ({cart.totalQuantity})</h2>
-              <h2 className={classes.removeItems} onClick={clearCart}>
+              <h2 className="cart-modal__remove-items" onClick={clearCart}>
                 Remove All
               </h2>
             </div>
-            <div className={classes.cartItems}>
+            <div className="cart-modal__items">
               {cart.items.map((item) => {
                 return (
                   <React.Fragment key={item.id}>
-                    <div className={classes.productDetail}>
-                      <div className={classes.productInformationContainer}>
+                    <div className="cart-modal__product-detail">
+                      <div className="cart-modal__product-information-container">
                         {gallery.map((image) => {
                           if (image.productId === item.id) {
                             return (
                               <img
                                 alt="galleryImage"
-                                className={classes.cartProductImage}
+                                className="cart-modal__product-image"
                                 src={image.imageUrl}
                                 key={image.productId}
                               />
@@ -51,22 +50,28 @@ const CartItem = ({
                           }
                           return null;
                         })}
-                        <div className={classes.productInformation}>
-                          <p className={classes.productName}>{item.cartName}</p>
-                          <p className={classes.productPrice}>$ {item.price}</p>
+                        <div className="cart-modal__product-information">
+                          <p className="cart-modal__product-name">
+                            {item.cartName}
+                          </p>
+                          <p className="cart-modal__product-price">
+                            $ {item.price}
+                          </p>
                         </div>
                       </div>
-                      <div className={classes.quantityInput}>
+                      <div className="cart-modal__quantity-input">
                         <p
                           onClick={() => decreaseQuantity(item.id)}
-                          className={classes.quantitySelector}
+                          className="cart-modal__quantity-selector"
                         >
                           -
                         </p>
-                        <p className={classes.itemQuantity}>{item.quantity}</p>
+                        <p className="cart-modal__item-quantity">
+                          {item.quantity}
+                        </p>
                         <p
                           onClick={() => increaseQuantity(item.id)}
-                          className={classes.quantitySelector}
+                          className="cart-modal__quantity-selector"
                         >
                           +
                         </p>
@@ -76,18 +81,16 @@ const CartItem = ({
                 );
               })}
             </div>
-            <div className={classes.cartTotal}>
+            <div className="cart-modal__total">
               <p>TOTAL</p>
               <p>${cart.totalPrice}</p>
             </div>
-            <div className={classes.buttonPosition}>
-              <Button className={classes.checkoutBtn} variant="primary">
-                CHECKOUT
-              </Button>
+            <div className="cart-modal__button-position">
+              <Button variant="primary">CHECKOUT</Button>
             </div>
           </React.Fragment>
         ) : (
-          <p className={classes.noItemsFound}>No items in cart.</p>
+          <p className="cart-modal__no-items-found">No items in cart.</p>
         )}
       </Box>
     </Modal>
@@ -95,3 +98,5 @@ const CartItem = ({
 };
 
 export default CartItem;
+
+// className={classes.checkoutBtn}

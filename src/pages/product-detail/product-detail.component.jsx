@@ -6,7 +6,8 @@ import {
   getCrossSellImagesPerDevice,
   getImagePerDevice
 } from "./product-detail.utils";
-import { useStyles } from "./product.detail.styles";
+// import { useStyles } from "./product.detail.styles";
+import "./product-detail.styles.scss";
 import ProductFeatures from "../../components/product-features/product-features.component";
 import ProductGallery from "../../components/product-gallery/product-gallery.component";
 import ProductCrossSell from "../../components/product-cross-sell/product-cross-sell.component";
@@ -14,7 +15,7 @@ import { selectSharedImages } from "../../redux/gallery/gallery.selectors";
 import CategoryShowcase from "../../components/category-showcase/category-showcase.component";
 
 const ProductDetailPage = (props) => {
-  const classes = useStyles();
+  // const classes = useStyles();
   let width = props.width;
 
   let [[product]] = props.product.length > 0 ? props.product : [[]];
@@ -28,12 +29,12 @@ const ProductDetailPage = (props) => {
   );
 
   return (
-    <div className={classes.productDetailWrapper}>
+    <div className="product-detail-wrapper">
       <ProductPreview product={product} productImage={productGallery} />
       <ProductFeatures product={product} />
       <ProductGallery galleryImages={productGallery} />
       <ProductCrossSell crossSellImages={crossSellImages} />
-      <div className={classes.categoryShowcasePosition}>
+      <div className="product-detail-wrapper__category-showcase-position">
         <CategoryShowcase />
       </div>
     </div>

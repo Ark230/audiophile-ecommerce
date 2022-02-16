@@ -3,7 +3,7 @@
 .section-wrapper {
   padding: 22rem 14.5rem 0 14.5rem;
   @include respond-down(tab-landscape) {
-    padding: 35rem 9rem 0 9rem;
+    padding: 26rem 9rem 0 9rem;
   }
   @include respond-down(tab-port) {
     padding-left: 4.5rem;
