@@ -68,9 +68,12 @@
         margin-right: 1.5rem;
       }
 
-      @include respond(big-desktop) {
+      & > li:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+      @include respond-down(tab-port) {
         & > li:not(:last-child) {
-          margin-bottom: 1rem;
+          margin-bottom: 0.7rem;
         }
       }
     }

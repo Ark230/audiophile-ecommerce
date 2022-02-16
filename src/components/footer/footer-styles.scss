@@ -6,9 +6,10 @@
     justify-content: space-between;
     padding: 5rem 14.5rem 10rem 14.5rem;
     margin-top: -3rem;
+    margin-bottom: 3rem;
     @include respond-down(tab-port) {
       flex-direction: column;
-      padding: 5rem 4.5rem;
+      padding: 5rem 3.5rem;
     }
 
     @include respond(tab-landscape) {

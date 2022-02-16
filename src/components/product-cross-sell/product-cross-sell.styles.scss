@@ -1,7 +1,7 @@
 @import "../../sass/main.scss";
 
 .product-cross-sell-section {
-  margin: 5rem 0;
+  margin-bottom: 16rem;
   & > &__header {
     font-size: 3rem;
     text-align: center;
@@ -17,6 +17,7 @@
     & > .product-cross-sell__item {
       width: 30%;
       overflow: hidden;
+      margin: 1.8rem 0;
       & > .product-cross-sell__image {
         width: 100%;
         border-radius: 8px;
