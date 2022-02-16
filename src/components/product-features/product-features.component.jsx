@@ -1,26 +1,25 @@
 import React from "react";
-import { useStyles } from "./product-features.styles";
+import "./product-features.styles.scss";
 
 const ProductFeatures = ({ product }) => {
-  const classes = useStyles();
   const { productFeatures } = product ? product : {};
 
   return (
-    <div className={classes.featuresSection}>
-      <div className={classes.featuresDetail}>
-        <h2 className={classes.featuresTitle}>FEATURES</h2>
+    <div className="features">
+      <div className="features__detail">
+        <h2 className="features__detail__title">FEATURES</h2>
         {productFeatures
           ? productFeatures.featureDescription.split("\\n").map((item, idx) => (
-              <p key={idx} className={classes.featuresParagraph}>
+              <p key={idx} className="features__detail__paragraph">
                 {item}
               </p>
             ))
           : ""}
       </div>
 
-      <div className={classes.productAddons}>
+      <div className="features__product-addons">
         <h2>IN THE BOX</h2>
-        <ul className={classes.productAddonsList}>
+        <ul className="feature__product-addons__list">
           {productFeatures
             ? productFeatures.addons.map((addon, idx) => (
                 <li key={idx}>

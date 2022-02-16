@@ -1,0 +1,78 @@
+@import "../../sass/main.scss";
+
+.features {
+  display: flex;
+  @include respond-up(big-desktop) {
+    justify-content: space-between;
+  }
+  @include respond-down(tab-landscape) {
+    flex-direction: column;
+  }
+
+  & > &__detail {
+    @include respond-up(big-desktop) {
+      width: 60%;
+    }
+    & > .features__detail__title {
+      margin: 2rem 0;
+      font-size: 2.5rem;
+    }
+
+    & > .features__detail__paragraph {
+      font-size: 1.9rem;
+      text-align: justify;
+      word-break: break-all;
+      opacity: 0.5;
+      margin: 2rem 0;
+      @include respond-up(big-desktop) {
+        word-break: revert;
+      }
+    }
+  }
+
+  & > &__product-addons {
+    margin: 3rem 0;
+    display: flex;
+    & > h2 {
+      margin: 2rem 0;
+      font-size: 2.5rem;
+    }
+
+    @include respond-up(tab-port) {
+      justify-content: space-evenly;
+    }
+
+    @include respond-down(phone) {
+      flex-direction: column;
+    }
+
+    @include respond-up(big-desktop) {
+      margin: 0;
+      width: 30%;
+      flex-direction: column;
+      justify-content: revert;
+    }
+
+    & > .feature__product-addons__list {
+      list-style: none;
+      padding: 0;
+      & > li > p {
+        font-size: 1.9rem;
+        opacity: 0.5;
+        display: inline;
+      }
+
+      & > li > span {
+        font-size: 1.9rem;
+        color: #d87d4a;
+        margin-right: 1.5rem;
+      }
+
+      @include respond(big-desktop) {
+        & > li:not(:last-child) {
+          margin-bottom: 1rem;
+        }
+      }
+    }
+  }
+}
