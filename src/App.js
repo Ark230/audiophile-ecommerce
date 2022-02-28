@@ -31,25 +31,7 @@ const theme = createMuiTheme({
   overrides: {
     MuiCssBaseline: {
       "@global": {
-        "@font-face": [manrope],
-        html: {
-          //big desktop
-          [breakpoints.up("xl")]: {
-            fontSize: "75%"
-          },
-          //desktop
-          [breakpoints.between("md", "lg")]: {
-            fontSize: "62.5%"
-          },
-          //tab-land
-          [breakpoints.only("sm")]: {
-            fontSize: "55%"
-          },
-          //tab-port - cells
-          [breakpoints.only("xs")]: {
-            fontSize: "50%"
-          }
-        }
+        "@font-face": [manrope]
       }
     },
     MuiDrawer: {

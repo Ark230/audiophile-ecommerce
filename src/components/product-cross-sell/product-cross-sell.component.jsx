@@ -1,10 +1,8 @@
 import React from "react";
 import Button from "../button/button.component";
-// import { useStyles } from "./product-cross-sell.styles";
 import "./product-cross-sell.styles.scss";
 import { useNavigate } from "react-router-dom";
 const ProductCrossSell = ({ crossSellImages }) => {
-  // const classes = useStyles();
   const navigate = useNavigate();
 
   const handleNavigation = (categoryName, productId) => {

@@ -6,7 +6,6 @@ import {
   getCrossSellImagesPerDevice,
   getImagePerDevice
 } from "./product-detail.utils";
-// import { useStyles } from "./product.detail.styles";
 import "./product-detail.styles.scss";
 import ProductFeatures from "../../components/product-features/product-features.component";
 import ProductGallery from "../../components/product-gallery/product-gallery.component";
@@ -15,7 +14,6 @@ import { selectSharedImages } from "../../redux/gallery/gallery.selectors";
 import CategoryShowcase from "../../components/category-showcase/category-showcase.component";
 
 const ProductDetailPage = (props) => {
-  // const classes = useStyles();
   let width = props.width;
 
   let [[product]] = props.product.length > 0 ? props.product : [[]];

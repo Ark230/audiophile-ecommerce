@@ -2,7 +2,7 @@
 
 .features {
   display: flex;
-  @include respond-up(big-desktop) {
+  @include respond-up(desktop) {
     justify-content: space-between;
   }
   @include respond-down(tab-landscape) {
@@ -10,7 +10,7 @@
   }
 
   & > &__detail {
-    @include respond-up(big-desktop) {
+    @include respond-up(desktop) {
       width: 60%;
     }
     & > .features__detail__title {
@@ -24,7 +24,7 @@
       word-break: break-all;
       opacity: 0.5;
       margin: 2rem 0;
-      @include respond-up(big-desktop) {
+      @include respond-up(desktop) {
         word-break: revert;
       }
     }
@@ -46,7 +46,7 @@
       flex-direction: column;
     }
 
-    @include respond-up(big-desktop) {
+    @include respond-up(desktop) {
       margin: 0;
       width: 30%;
       flex-direction: column;

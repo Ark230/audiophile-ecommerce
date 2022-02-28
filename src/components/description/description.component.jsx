@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import "./description.styles.scss";
-// import { useStyles } from "./description.styles";
 import Button from "../button/button.component";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
@@ -22,8 +21,6 @@ const Description = (props) => {
     category,
     addItem
   } = props;
-
-  // const classes = useStyles();
 
   const handleNavigate = () => {
     navigate(`/category/${category}/${productId}`);

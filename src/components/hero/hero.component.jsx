@@ -2,10 +2,7 @@ import { React } from "react";
 import Description from "../description/description.component";
 import "./hero.styles.scss";
 
-// import { useStyles } from "./hero.styles";
-
 const Hero = (props) => {
-  // const classes = useStyles();
   const descriptionProps = {
     isTitleVisible: true,
     productDetailPage: false,
