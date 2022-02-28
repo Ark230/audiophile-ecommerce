@@ -27,7 +27,7 @@
       width: 100rem;
       transform: translate(-23%, -6%);
     }
-    @include respond-up(big-desktop) {
+    @include respond-up(desktop) {
       width: 100rem;
       transform: translate(-18.5%, -6%);
     }
@@ -74,6 +74,9 @@
 
       & > .description__product-title {
         word-spacing: 15rem;
+        @include respond(desktop) {
+          word-spacing: 35rem;
+        }
       }
 
       & > .description__description-text {

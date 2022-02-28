@@ -98,5 +98,3 @@ const CartItem = ({
 };
 
 export default CartItem;
-
-// className={classes.checkoutBtn}

@@ -3,7 +3,7 @@
     - phone 0-37.5em (0px-600px)
     - tab-port 37.6em-80em (601px-960px)
     - tab-landscape 80.1em-112.5em (961px-1280px)
-    - big-desktop 1126.em > (1280px - X)
+    - desktop 112.6em > (1281px - X)
 */
 
 @mixin respond($breakpoint) {
@@ -23,12 +23,22 @@
     @media (min-width: 60em) and (max-width: 80em) {
       // md
       @content;
-    } // 1200px
+    } // 960-1280px
   }
-  @if $breakpoint == big-desktop {
+  @if $breakpoint == desktop {
     @media (min-width: 80.1em) {
       @content;
-    } // 1800px
+    } // 1280px+
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    } // 1280px+
+  }
+  @if $breakpoint == ultra-wide-desktop {
+    @media (min-width: 160em) {
+      @content;
+    } // 2560px
   }
 }
 
@@ -37,13 +47,13 @@
     "phone": 0em,
     "tab-port": 37.6em,
     "tab-landscape": 60.1em,
-    "big-desktop": 80.1em
+    "desktop": 80.1em
   );
   $devices-max: (
     "phone": 37.5em,
     "tab-port": 60em,
     "tab-landscape": 80em,
-    "big-desktop": 112.5em
+    "desktop": 112.5em
   );
 
   $first-breakpoint-value: map-get($devices-min, $first-breakpoint);
@@ -73,12 +83,12 @@
     @media (min-width: 60.1em) {
       // md
       @content;
-    } // 1280px
+    } // 960px
   }
-  @if $breakpoint == big-desktop {
+  @if $breakpoint == desktop {
     @media (min-width: 80.1em) {
       @content;
-    } // 1800px
+    } // 1280px
   }
 }
 
@@ -101,7 +111,7 @@
       @content;
     } // 1280px
   }
-  @if $breakpoint == big-desktop {
+  @if $breakpoint == desktop {
     @media (max-width: 112.5em) {
       @content;
     } // 1800px
