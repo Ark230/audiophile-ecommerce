@@ -1,13 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import CategoryShowcase from "../../components/category-showcase/category-showcase.component";
-
 import Description from "../../components/description/description.component";
 import { selectCategory } from "../../redux/shop/shop.selectors";
-import { useStyles } from "./category.styles";
+import "./category.styles.scss";
 
 const CategoryPage = ({ category, width }) => {
-  const classes = useStyles();
   const { products } = category;
 
   const getImagePerDevice = (width, productName) => {
@@ -33,16 +31,16 @@ const CategoryPage = ({ category, width }) => {
   };
 
   return (
-    <div className={classes.wrapper}>
+    <div className="section-wrapper">
       {products
         ? products.map((item) => (
-            <div key={item.id} className={classes.productContainer}>
+            <div key={item.id} className="product">
               <img
                 alt="category"
-                className={classes.productImage}
+                className="product__image"
                 src={getImagePerDevice(width, item.name)}
               />
-              <div className={classes.descriptionContainerPosition}>
+              <div className="description-position">
                 <Description
                   isTitleVisible={true}
                   productDetailPage={false}
@@ -55,7 +53,7 @@ const CategoryPage = ({ category, width }) => {
             </div>
           ))
         : undefined}
-      <div className={classes.categoryShowcasePosition}>
+      <div className="category-showcase-position">
         <CategoryShowcase />
       </div>
     </div>

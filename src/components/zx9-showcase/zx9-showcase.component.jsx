@@ -1,5 +1,9 @@
 import React from "react";
 import { useStyles } from "./zx9-showcase.styles";
+<<<<<<< HEAD
+=======
+import "./zx9-showcase-styles.scss";
+>>>>>>> main
 import circlePattern from "../../assets/img/pattern-circles.svg";
 import Description from "../description/description.component";
 import { connect } from "react-redux";
@@ -22,15 +26,15 @@ const ZX9Showcase = ({ images }) => {
   };
 
   return (
-    <div className={classes.showcaseContainer}>
+    <div className="showcase">
       <img alt="ZX9 Speaker" className={classes.speakerShowcase} />
       <img
         alt="circle-pattern"
-        className={classes.circlePattern}
+        className="showcase__circle-pattern"
         src={circlePattern}
       />
 
-      <div className={classes.productShowCasePosition}>
+      <div className="showcase__zx9-showcase-position">
         <Description {...descriptionProps} />
       </div>
     </div>

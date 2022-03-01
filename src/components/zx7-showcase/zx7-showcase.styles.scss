@@ -1,0 +1,23 @@
+@import "../../sass/main.scss";
+
+.showcase__zx7-showcase-position {
+  position: absolute;
+  left: 8%;
+  top: 24%;
+  & > .description {
+    & > .description__product-title {
+      color: #000000;
+      font-size: 3.5rem;
+      line-height: 4.75rem;
+      letter-spacing: 0.25rem;
+    }
+
+    & > .descriptionButton {
+      @include respond(phone) {
+        width: 20rem;
+        font-size: 1.625rem;
+        line-height: 2.25rem;
+      }
+    }
+  }
+}

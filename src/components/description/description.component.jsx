@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { useStyles } from "./description.styles";
+import "./description.styles.scss";
 import Button from "../button/button.component";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
@@ -21,8 +21,6 @@ const Description = (props) => {
     category,
     addItem
   } = props;
-
-  const classes = useStyles();
 
   const handleNavigate = () => {
     navigate(`/category/${category}/${productId}`);
@@ -60,19 +58,21 @@ const Description = (props) => {
   });
 
   return (
-    <div className={classes.descriptionContainer}>
+    <div className="description">
       {isTitleVisible && (
-        <span className={classes.newProduct}>NEW PRODUCT</span>
+        <span className="description__new-product">NEW PRODUCT</span>
       )}
-      <h1 className={classes.productTitle}>{productName.toUpperCase()}</h1>
-      <p className={classes.descriptionText}>{productDescription}</p>
+      <h1 className="description__product-title">
+        {productName.toUpperCase()}
+      </h1>
+      <p className="description__description-text">{productDescription}</p>
       {productDetailPage ? (
-        <div>
-          <h2 className={classes.productPrice}>$ {productPrice}</h2>
+        <div className="description__purchase">
+          <h2 className="description__product-price">$ {productPrice}</h2>
 
-          <div className={classes.quantityInput}>
+          <div className="description__quantity-input">
             <p
-              className={classes.quantitySelector}
+              className="description__quantity-selector"
               onClick={() => handleQuantity("decrease")}
             >
               -
@@ -80,7 +80,7 @@ const Description = (props) => {
             <p id="counter">{counterRef.current}</p>
 
             <p
-              className={classes.quantitySelector}
+              className="description__quantity-selector"
               onClick={() => handleQuantity("increase")}
             >
               +

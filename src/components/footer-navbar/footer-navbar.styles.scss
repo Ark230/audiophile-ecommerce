@@ -1,0 +1,57 @@
+@import "../../sass/main.scss";
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+.footer-navbar {
+  display: flex;
+  justify-content: space-between;
+  @include respond-down(tab-port) {
+    flex-direction: column;
+  }
+
+  & > &__business-logo {
+    width: 14rem;
+    cursor: pointer;
+    @include respond(phone) {
+      margin: 0 auto;
+    }
+  }
+
+  & > &__items {
+    display: flex;
+    justify-content: space-between;
+    color: #ffffff;
+    list-style: none;
+    & > li {
+      cursor: pointer;
+      font-size: 1.3rem;
+      font-weight: bold;
+      line-height: 1rem;
+      letter-spacing: 0.3rem;
+
+      &:hover {
+        color: #d87d4a;
+      }
+    }
+
+    & > li:not(:last-child) {
+      margin-right: 1rem;
+      @include respond(phone) {
+        margin-bottom: 2rem;
+      }
+    }
+
+    @include respond(phone) {
+      flex-direction: column;
+      padding: 0;
+      text-align: center;
+      margin: 4rem 0;
+    }
+    @include respond(tab-port) {
+      padding: 0;
+      justify-content: flex-start;
+      margin-top: 4rem;
+    }
+  }
+}

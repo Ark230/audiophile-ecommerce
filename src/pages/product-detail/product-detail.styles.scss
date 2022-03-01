@@ -1,0 +1,17 @@
+@import "../../sass/main.scss";
+
+.product-detail-wrapper {
+  padding: 14rem 14.5rem 0 14.5rem;
+  @include respond(tab-landscape) {
+    padding-left: 9rem;
+    padding-right: 9rem;
+  }
+  @include respond-down(tab-port) {
+    padding-left: 4.5rem;
+    padding-right: 4.5rem;
+  }
+
+  & > &__category-showcase-position {
+    margin: 10rem 0;
+  }
+}

@@ -1,0 +1,119 @@
+/*
+    $breakpoint argument choices:
+    - phone 0-37.5em (0px-600px)
+    - tab-port 37.6em-80em (601px-960px)
+    - tab-landscape 80.1em-112.5em (961px-1280px)
+    - desktop 112.6em > (1281px - X)
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      // xs
+      @content;
+    } // 600px
+  }
+  @if $breakpoint == tab-port {
+    @media (min-width: 37.5em) and (max-width: 60em) {
+      // sm
+      @content;
+    } // 960px
+  }
+  @if $breakpoint == tab-landscape {
+    @media (min-width: 60em) and (max-width: 80em) {
+      // md
+      @content;
+    } // 960-1280px
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 80.1em) {
+      @content;
+    } // 1280px+
+  }
+  @if $breakpoint == big-desktop {
+    @media (min-width: 112.5em) {
+      @content;
+    } // 1280px+
+  }
+  @if $breakpoint == ultra-wide-desktop {
+    @media (min-width: 160em) {
+      @content;
+    } // 2560px
+  }
+}
+
+@mixin respond-between($first-breakpoint, $second-breakpoint) {
+  $devices-min: (
+    "phone": 0em,
+    "tab-port": 37.6em,
+    "tab-landscape": 60.1em,
+    "desktop": 80.1em
+  );
+  $devices-max: (
+    "phone": 37.5em,
+    "tab-port": 60em,
+    "tab-landscape": 80em,
+    "desktop": 112.5em
+  );
+
+  $first-breakpoint-value: map-get($devices-min, $first-breakpoint);
+  $second-breakpoint-value: map-get($devices-max, $second-breakpoint);
+
+  @if ($first-breakpoint-value < $second-breakpoint-value) {
+    @media (min-width: $first-breakpoint-value) and (max-width: $second-breakpoint-value) {
+      @content;
+    }
+  }
+}
+
+@mixin respond-up($breakpoint) {
+  @if $breakpoint == phone {
+    @media (min-width: 0em) {
+      // xs
+      @content;
+    } // 600px
+  }
+  @if $breakpoint == tab-port {
+    @media (min-width: 37.6em) {
+      // sm
+      @content;
+    } // 960px
+  }
+  @if $breakpoint == tab-landscape {
+    @media (min-width: 60.1em) {
+      // md
+      @content;
+    } // 960px
+  }
+  @if $breakpoint == desktop {
+    @media (min-width: 80.1em) {
+      @content;
+    } // 1280px
+  }
+}
+
+@mixin respond-down($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      // xs
+      @content;
+    } // 600px
+  }
+  @if $breakpoint == tab-port {
+    @media (max-width: 60em) {
+      // sm
+      @content;
+    } // 960px
+  }
+  @if $breakpoint == tab-landscape {
+    @media (max-width: 80em) {
+      // md
+      @content;
+    } // 1280px
+  }
+  @if $breakpoint == desktop {
+    @media (max-width: 112.5em) {
+      @content;
+    } // 1800px
+  }
+}

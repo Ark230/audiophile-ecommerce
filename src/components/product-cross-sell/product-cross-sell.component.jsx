@@ -1,9 +1,8 @@
 import React from "react";
 import Button from "../button/button.component";
-import { useStyles } from "./product-cross-sell.styles";
+import "./product-cross-sell.styles.scss";
 import { useNavigate } from "react-router-dom";
 const ProductCrossSell = ({ crossSellImages }) => {
-  const classes = useStyles();
   const navigate = useNavigate();
 
   const handleNavigation = (categoryName, productId) => {
@@ -11,20 +10,17 @@ const ProductCrossSell = ({ crossSellImages }) => {
   };
 
   return (
-    <div className={classes.productCrossSellSection}>
-      <h2>YOU MAY ALSO LIKE</h2>
-      <div className={classes.productCrossSellContainer}>
+    <div className="product-cross-sell-section">
+      <h2 className="product-cross-sell-section__header">YOU MAY ALSO LIKE</h2>
+      <div className="product-cross-sell">
         {crossSellImages
           .filter((image, idx) => idx < 3)
           .map((image) => {
             return (
-              <div
-                key={image.productId}
-                className={classes.productCrossSellItem}
-              >
+              <div key={image.productId} className="product-cross-sell__item">
                 <img
                   alt="product-cross-sell"
-                  className={classes.productCrossSellImage}
+                  className="product-cross-sell__image"
                   src={image.imageUrl}
                 />
                 <h3>{image.name.toUpperCase()}</h3>

@@ -1,8 +1,9 @@
 import HomePageContainer from "./pages/home/home.container";
 import { connect } from "react-redux";
+import { compose } from "redux";
 import { useEffect } from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { ThemeProvider } from "@material-ui/core";
+import { ThemeProvider, withWidth } from "@material-ui/core";
 import { createMuiTheme } from "@material-ui/core/styles";
 import createBreakpoints from "@material-ui/core/styles/createBreakpoints";
 import Footer from "./components/footer/footer.component";
@@ -30,25 +31,7 @@ const theme = createMuiTheme({
   overrides: {
     MuiCssBaseline: {
       "@global": {
-        "@font-face": [manrope],
-        html: {
-          //big desktop
-          [breakpoints.up("xl")]: {
-            fontSize: "75%"
-          },
-          //desktop
-          [breakpoints.between("md", "lg")]: {
-            fontSize: "62.5%"
-          },
-          //tab-land
-          [breakpoints.only("sm")]: {
-            fontSize: "55%"
-          },
-          //tab-port - cells
-          [breakpoints.only("xs")]: {
-            fontSize: "50%"
-          }
-        }
+        "@font-face": [manrope]
       }
     },
     MuiDrawer: {
@@ -56,14 +39,14 @@ const theme = createMuiTheme({
       paperAnchorTop: {
         top: "70px",
         [breakpoints.down("xs")]: {
-          height: "50rem"
+          height: "40rem"
         }
       }
     }
   }
 });
 
-function App({ fetchImages, fetchCollections, setUrlPathName }) {
+function App({ fetchImages, fetchCollections, setUrlPathName, width }) {
   useEffect(() => {
     fetchImages();
     fetchCollections();
@@ -104,4 +87,4 @@ const mapDispatchToProps = (dispatch) => ({
   fetchCollections: () => dispatch(fetchCollections())
 });
 
-export default connect(null, mapDispatchToProps)(App);
+export default compose(connect(null, mapDispatchToProps), withWidth())(App);

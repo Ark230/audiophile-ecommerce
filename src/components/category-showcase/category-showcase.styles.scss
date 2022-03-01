@@ -1,0 +1,86 @@
+@import "../../sass/main.scss";
+
+.category-showcase {
+  display: flex;
+  justify-content: space-between;
+  margin: 10rem auto 0 auto;
+
+  @include respond(phone) {
+    flex-direction: column;
+    height: 90rem;
+    align-items: center;
+  }
+
+  & > &__category {
+    position: relative;
+    width: 35rem;
+    height: 20.4rem;
+    background: #f1f1f1;
+    border-radius: 8px;
+    @include respond(tab-port) {
+      width: 30.5%;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+    }
+    &:not(:last-child) {
+      margin-right: 2rem;
+      @include respond(phone) {
+        margin-right: 0;
+      }
+    }
+
+    & > img {
+      width: 26rem;
+      height: 25rem;
+      display: block;
+      margin: -10rem auto;
+      @include respond-up(tab-landscape) {
+        left: 10%;
+      }
+
+      @include respond-down(tab-port) {
+        position: revert;
+        display: block;
+        width: 22rem;
+        height: 21rem;
+      }
+    }
+
+    & > .category-showcase__category-name {
+      text-align: center;
+      font-size: 1.8rem;
+      line-height: 2.5rem;
+      letter-spacing: 1.28px;
+      font-weight: bold;
+      margin-top: 7rem;
+      @include respond-down(tab-port) {
+        margin-top: 10rem;
+      }
+    }
+    & > .category-showcase__shop-link {
+      text-align: center;
+      & > h4 {
+        display: inline;
+        margin-right: 1rem;
+        margin-left: 4rem;
+        opacity: 0.5;
+        font-size: 1.3rem;
+        letter-spacing: 1px;
+        line-height: 1.8rem;
+        cursor: pointer;
+        &:hover {
+          color: #d87d4a;
+          opacity: revert;
+        }
+      }
+
+      & > svg {
+        fill: #d87d4a;
+        font-size: 3rem;
+        transform: translateY(1rem);
+      }
+    }
+  }
+}

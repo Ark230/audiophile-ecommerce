@@ -42,14 +42,5 @@ export const useStyles = makeStyles((theme) => ({
           : undefined
       })`
     })
-  }),
-  mainSection: {
-    padding: "10rem 14.5rem",
-    [theme.breakpoints.only("md")]: {
-      padding: "10rem 9rem"
-    },
-    [theme.breakpoints.down("sm")]: {
-      padding: "10rem 4.5rem"
-    }
-  }
+  })
 }));

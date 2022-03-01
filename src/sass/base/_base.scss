@@ -1,0 +1,33 @@
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit;
+}
+
+html {
+  //this defines what 1 rem is equal to
+  @include respond(desktop) {
+    font-size: 62.5%; // 1 rem = 10px
+  }
+
+  @include respond(phone) {
+    font-size: 48%;
+  }
+
+  @include respond(tab-port) {
+    font-size: 55%;
+  }
+
+  @include respond(big-desktop) {
+    font-size: 75%; // 1 rem = 12px
+  }
+  @include respond(ultra-wide-desktop) {
+    font-size: 90%; // 1 rem = 12px
+  }
+}
+
+body {
+  box-sizing: border-box;
+}

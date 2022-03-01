@@ -1,15 +1,19 @@
-body {
-  margin: 0;
-  padding: 0px 0px;
-  box-sizing: border-box;
-  font-family: 'Arial',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 62.5%;
-}
+/*
+    $breakpoint argument choices:
+    - phone 0-37.5em (0px-600px)
+    - tab-port 37.6em-80em (601px-960px)
+    - tab-landscape 80.1em-112.5em (961px-1280px)
+    - big-desktop 1126.em > (1280px - X)
+*/
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: inherit; }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
+html {
+  font-size: 62.5%; }
+
+body {
+  box-sizing: border-box; }

@@ -1,0 +1,11 @@
+@import "../../sass/main.scss";
+
+.main-section {
+  padding: 10rem 14.5rem;
+  @include respond(tab-landscape) {
+    padding: 10rem 9rem;
+  }
+  @include respond-down(tab-port) {
+    padding: 8rem 3.5rem;
+  }
+}

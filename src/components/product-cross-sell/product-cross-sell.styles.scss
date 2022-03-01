@@ -1,0 +1,45 @@
+@import "../../sass/main.scss";
+
+.product-cross-sell-section {
+  margin-bottom: 16rem;
+  & > &__header {
+    font-size: 3rem;
+    text-align: center;
+    letter-spacing: 0.4rem;
+    margin: 3rem 0;
+  }
+  & > .product-cross-sell {
+    display: flex;
+    justify-content: space-between;
+    @include respond(phone) {
+      flex-direction: column;
+    }
+    & > .product-cross-sell__item {
+      width: 30%;
+      overflow: hidden;
+      margin: 1.8rem 0;
+      & > .product-cross-sell__image {
+        width: 100%;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+
+      & > h3 {
+        text-align: center;
+        font-size: 2.4rem;
+        letter-spacing: 0.25rem;
+        @include respond-between(tab-port, tab-landscape) {
+          font-size: 2rem;
+        }
+      }
+      & > button {
+        display: block;
+        margin: 3rem auto;
+      }
+
+      @include respond(phone) {
+        width: revert;
+      }
+    }
+  }
+}

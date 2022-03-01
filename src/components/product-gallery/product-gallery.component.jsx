@@ -1,5 +1,5 @@
 import React from "react";
-import { useStyles } from "./product-gallery.styles";
+import "./product-gallery.styles.scss";
 
 const ProductGallery = ({ galleryImages }) => {
   const images = [];
@@ -10,11 +10,9 @@ const ProductGallery = ({ galleryImages }) => {
     }
   }
 
-  const classes = useStyles();
-
   return (
-    <div className={classes.galleryContainer}>
-      <div className={classes.subGalleryContainer}>
+    <div className="gallery">
+      <div className="gallery__sub-gallery">
         <img
           alt="product-showcase-1"
           src={galleryImages ? galleryImages.gallery1 : ""}
